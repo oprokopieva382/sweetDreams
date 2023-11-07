@@ -1,4 +1,4 @@
-const { Video } = require("../models/Video");
+const { Video } = require("../models");
 const videoData = [
   {
     video_url: "videourl.com",
