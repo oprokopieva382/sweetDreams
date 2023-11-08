@@ -15,13 +15,16 @@ Video.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     author: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    run_time: {
+      type: DataTypes.INTEGER,
     },
     user_id: {
       type: DataTypes.INTEGER,

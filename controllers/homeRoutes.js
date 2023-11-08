@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-const { User } = require("../models");
+const { User, Video } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -24,15 +24,15 @@ router.get("/login", (req, res) => {
   }
 });
 
-router.get("/meditation", withAuth, (req, res) => {
+router.get("/meditation", withAuth, async (req, res) => {
   // If the user is already logged in, redirect the request to another route
   try {
-    if (req.session.logged_in) {
-      res.render("meditation");
-      return;
-    }
-
-    res.render("login");
+    //go get all the videos from db
+    const videos = await Video.findAll();
+    //get the video objects out of the array
+    const allVideos = videos.map((video) => video.get({ plain: true }));
+    //show the meditation page and give it all of the video data
+    res.render("meditation", { allVideos });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -41,12 +41,7 @@ router.get("/meditation", withAuth, (req, res) => {
 router.get("/boringbooks", withAuth, (req, res) => {
   // If the user is already logged in, redirect the request to another route
   try {
-    if (req.session.logged_in) {
-      res.render("boringbooks");
-      return;
-    }
-
-    res.render("login");
+    res.render("boringbooks");
   } catch (err) {
     res.status(500).json(err);
   }
@@ -55,12 +50,7 @@ router.get("/boringbooks", withAuth, (req, res) => {
 router.get("/yogamusic", withAuth, (req, res) => {
   // If the user is already logged in, redirect the request to another route
   try {
-    if (req.session.logged_in) {
-      res.render("yogamusic");
-      return;
-    }
-
-    res.render("login");
+    res.render("yogamusic");
   } catch (err) {
     res.status(500).json(err);
   }
