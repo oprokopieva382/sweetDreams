@@ -759,3 +759,305 @@ audio::-webkit-media-controls-time-remaining-display {
   border-radius: 50px;
   border: 1px solid #333;
 }
+
+/* Style the modal container */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+/* Style the modal content */
+.modal-content {
+  background: #fff;
+  border: 1px solid #ccc;
+  width: 70%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background: url("/assets/img/note.jpg");
+}
+
+/* Style the New Note button */
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+#newNoteBtn {
+  width: 100px;
+  height: 100px;
+  background: #666666;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+}
+#newNoteBtn:hover {
+  background:#b1d4e0;
+  color: #9b9a9a;
+}
+
+/* Style the form elements */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-top: 10px;
+  color: #494949;
+  animation: lights 5s 750ms linear infinite;
+}
+@keyframes lights {
+  0% {
+    color: hsl(231, 8%, 55%);
+    text-shadow: 0 0 1em hsla(234, 98%, 38%, 0.5),
+      0 0 0.125em hsla(209, 91%, 58%, 0.5),
+      -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+      1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+  }
+
+  30% {
+    color: hsl(231, 8%, 55%);
+    text-shadow: 0 0 1em hsla(234, 100%, 50%, 0.5),
+      0 0 0.125em hsla(209, 88%, 66%, 0.5),
+      -0.5em -0.125em 0.25em hsla(40, 21%, 58%, 0.2),
+      0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+  }
+
+  40% {
+    color: hsl(231, 8%, 55%);
+    text-shadow: 0 0 1em hsla(234, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 90%, 0.5),
+      -0.25em -0.125em 0.125em hsla(40, 21%, 58%, 0.2),
+      0.25em 0.125em 0.125em hsla(200, 81%, 66%, 0.4);
+  }
+
+  70% {
+    color: hsl(231, 8%, 55%);
+    text-shadow: 0 0 1em hsla(234, 100%, 50%, 0.5),
+      0 0 0.125em hsla(209, 88%, 66%, 0.5),
+      0.5em -0.125em 0.25em hsla(40, 21%, 58%, 0.2),
+      -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+  }
+
+  100% {
+    color: hsl(231, 8%, 55%);
+    text-shadow: 0 0 1em hsla(234, 100%, 50%, 0.5),
+      0 0 0.125em hsla(209, 51%, 50%, 0.5),
+      1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+      -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+  }
+}
+
+.day,
+.date {
+  width: 150px;
+  border: 0px solid;
+  margin: 5px 0;
+  padding: 10px;
+  background-color: #dcdcdc;
+  text-shadow: 0 0 0 #000;
+  color: #494949;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), 10px 10px 20px rgba(0, 0, 0, 0.2),
+    -5px -5px 10px rgba(255, 255, 255, 0.5),
+    -10px -10px 20px rgba(255, 255, 255, 0.5);
+}
+textarea {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.createNoteBtn[type="submit"] {
+  background: #dcdcdc;
+  color: #494949;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+  margin: 0 auto;
+}
+
+.createNoteBtn[type="submit"]:hover {
+  background: #9b9a9a;
+  color: #fff;
+}
+
+.large-textarea {
+  width: 100%;
+  height: 200px;
+  resize: none;
+}
+
+.modal-main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.modal-title {
+  text-align: center;
+  text-transform: uppercase;
+  color: #ababab;
+  width: 100%;
+  font-size: 45px;
+}
+
+.roller {
+  height: 4.125rem;
+  line-height: 4rem;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #abb0c5;
+}
+
+#spare-time {
+  font-size: 1rem;
+  font-style: italic;
+  letter-spacing: 0.5rem;
+  margin-top: 0;
+  color: #b1d4e0;
+}
+
+.roller #rolltext {
+  position: absolute;
+  top: 0;
+  animation: slide 6s infinite;
+}
+
+@keyframes slide {
+  0% {
+    top: 0;
+  }
+  25% {
+    top: -4rem;
+  }
+  50% {
+    top: -8rem;
+  }
+  72.5% {
+    top: -12.25rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #f1faee;
+    font-size: 2.125rem;
+  }
+
+  .roller {
+    height: 2.6rem;
+    line-height: 2.125rem;
+  }
+
+  #spare-time {
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .roller #rolltext {
+    animation: slide-mob 6s infinite;
+  }
+
+  @keyframes slide-mob {
+    0% {
+      top: 0;
+    }
+    25% {
+      top: -2.125rem;
+    }
+    50% {
+      top: -4.25rem;
+    }
+    72.5% {
+      top: -6.375rem;
+    }
+  }
+}
+
+/* list of notes display styling */
+
+.notes-card-container {
+  margin: 3%;
+  display: flex;
+  width: 90vw;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.notes-card-container .notes-card .face {
+  width: 300px;
+  height: 200px;
+  transition: 0.4s;
+}
+
+.notes-card-container .notes-card .face.face1 {
+  position: relative;
+  background: #dcdcdc;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.notes-card-container .notes-card:hover .face.face1 {
+  transform: translateY(0);
+  box-shadow: inset 0 0 60px whitesmoke, inset 20px 0 80px #b1d4e0,
+    inset -20px 0 80px #dcdcdc, inset 20px 0 300px #b1d4e0,
+    inset -20px 0 300px #dcdcdc, 0 0 50px #fff, -10px 0 80px #b1d4e0,
+    10px 0 80px #dcdcdc;
+}
+
+.notes-card-container .notes-card .face.face1 .notes-card-content {
+  transition: 0.5s;
+  text-align: center;
+}
+.notes-card-container .notes-card:hover .face.face1 .notes-card-content {
+  opacity: 1;
+}
+
+.notes-card-container .notes-card .face.face2 {
+  background: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-100px);
+   overflow: hidden;
+}
+
+.notes-card-container .notes-card:hover .face.face2 {
+  transform: translateY(0);
+  height: 100%;
+}
+
+.note-card-title {
+ color:  #666666;
+ text-transform: uppercase;
+ text-align: center;
+}
