@@ -22,7 +22,7 @@ const addNewNoteHandler = async (event) => {
   const content = document.getElementById("content").value;
 
   if (day && date && content) {
-    const response = await fetch(`/api/notes`, {
+    const response = await fetch("/api/notes", {
       method: "POST",
       body: JSON.stringify({ day, date, content }),
       headers: {
@@ -35,19 +35,11 @@ const addNewNoteHandler = async (event) => {
 
       modal.style.display = "none";
       noteVisibilityWithModal.style.display = "flex";
-      document.location.replace("/mynotes");
+    //   document.location.replace("/mynotes");
     } else {
       alert("Failed to create note");
     }
-    //   displayCreatedNote(day, date, content);
-  }
+   }
 };
-// function displayCreatedNote(day, date, content) {
-// You can create a new note element and add it to your note list or display it as desired.
-// For this example, we'll just log the values to the console.
-//   console.log(`Day of the Week: ${day}`);
-//   console.log(`Date: ${date}`);
-//   console.log(`Note Text: ${content}`);
-// }
 
 noteForm.addEventListener("submit", addNewNoteHandler);

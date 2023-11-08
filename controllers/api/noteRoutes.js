@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const withAuth = require("../../utils/auth");
 const { Note } = require("../../models");
 
 router.post("/", withAuth, async (req, res) => {
@@ -13,3 +14,6 @@ router.post("/", withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+
+module.exports = router;
