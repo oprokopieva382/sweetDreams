@@ -11,7 +11,7 @@ Note.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    day_of_the_week: {
+    day: {
       type: DataTypes.STRING,
       allowNull: false,
     },
