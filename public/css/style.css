@@ -802,8 +802,8 @@ audio::-webkit-media-controls-time-remaining-display {
   outline: none;
 }
 #newNoteBtn:hover {
-  background: #d4d3d3;
-  color: #666666;
+  background:#b1d4e0;
+  color: #9b9a9a;
 }
 
 /* Style the form elements */
@@ -993,4 +993,71 @@ textarea {
       top: -6.375rem;
     }
   }
+}
+
+/* list of notes display styling */
+
+.notes-card-container {
+  margin: 3%;
+  display: flex;
+  width: 90vw;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.notes-card-container .notes-card .face {
+  width: 300px;
+  height: 200px;
+  transition: 0.4s;
+}
+
+.notes-card-container .notes-card .face.face1 {
+  position: relative;
+  background: #dcdcdc;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.notes-card-container .notes-card:hover .face.face1 {
+  transform: translateY(0);
+  box-shadow: inset 0 0 60px whitesmoke, inset 20px 0 80px #b1d4e0,
+    inset -20px 0 80px #dcdcdc, inset 20px 0 300px #b1d4e0,
+    inset -20px 0 300px #dcdcdc, 0 0 50px #fff, -10px 0 80px #b1d4e0,
+    10px 0 80px #dcdcdc;
+}
+
+.notes-card-container .notes-card .face.face1 .notes-card-content {
+  transition: 0.5s;
+  text-align: center;
+}
+.notes-card-container .notes-card:hover .face.face1 .notes-card-content {
+  opacity: 1;
+}
+
+.notes-card-container .notes-card .face.face2 {
+  background: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-100px);
+   overflow: hidden;
+}
+
+.notes-card-container .notes-card:hover .face.face2 {
+  transform: translateY(0);
+  height: 100%;
+}
+
+.note-card-title {
+ color:  #666666;
+ text-transform: uppercase;
+ text-align: center;
 }
