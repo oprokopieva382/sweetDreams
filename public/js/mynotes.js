@@ -21,7 +21,6 @@ const addNewNoteHandler = async (event) => {
   const date = document.getElementById("date").value;
   const content = document.getElementById("content").value;
 
-  // Handle form submission (e.g., save the note and display it)
   if (day && date && content) {
     const response = await fetch(`/api/notes`, {
       method: "POST",
@@ -36,14 +35,13 @@ const addNewNoteHandler = async (event) => {
 
       modal.style.display = "none";
       noteVisibilityWithModal.style.display = "flex";
-      document.location.replace("/profile");
+      document.location.replace("/mynotes");
     } else {
-      alert("Failed to create project");
+      alert("Failed to create note");
     }
     //   displayCreatedNote(day, date, content);
   }
 };
-
 // function displayCreatedNote(day, date, content) {
 // You can create a new note element and add it to your note list or display it as desired.
 // For this example, we'll just log the values to the console.
