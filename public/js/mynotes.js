@@ -1,7 +1,9 @@
 const newNoteBtn = document.getElementById("newNoteBtn");
 const modal = document.getElementById("modal");
+const noteVisibilityWithModal = document.getElementById("notes-card-container");
 
 newNoteBtn.addEventListener("click", () => {
+  noteVisibilityWithModal.style.display = "none";
   modal.style.display = "block";
 });
 
@@ -28,6 +30,7 @@ noteForm.addEventListener("submit", (event) => {
   noteForm.reset();
 
   modal.style.display = "none";
+  noteVisibilityWithModal.style.display = "flex";
 });
 
 function displayCreatedNote(day, date, content) {
@@ -37,4 +40,3 @@ function displayCreatedNote(day, date, content) {
   console.log(`Date: ${date}`);
   console.log(`Note Text: ${content}`);
 }
-
