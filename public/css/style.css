@@ -121,7 +121,7 @@ body {
   font-family: inherit;
   font-size: 16px;
   letter-spacing: 0.5px;
-  color: --gray;
+  color: var(--four);
   background-color: transparent;
   border: none;
   outline: none;
@@ -192,7 +192,7 @@ body {
 
 @keyframes showLogin {
   0% {
-    background: var(--two);
+    background: var(--three);
     transform: translate(40%, 10px);
   }
   50% {
@@ -213,7 +213,7 @@ body {
     transform: translate(0, 0);
   }
   100% {
-    background: var(--two);
+    background: var(--three);
     transform: translate(40%, 10px);
   }
 }
@@ -228,7 +228,7 @@ body {
 
 @keyframes showSignup {
   0% {
-    background: var(--two);
+    background: var(--three);
     transform: translate(-40%, 10px) scaleY(0.8);
   }
   50% {
@@ -249,7 +249,7 @@ body {
     transform: translate(0, 0) scaleY(0.8);
   }
   100% {
-    background: var(--two);
+    background: var(--three);
     transform: translate(-40%, 10px) scaleY(0.8);
   }
 }
@@ -303,7 +303,7 @@ body {
   font-size: 16px;
   line-height: 40px;
   color: var(--seventeen);
-  background: var(--two);
+  background: var(--three);
   border: 1px solid var(--four);
   border-radius: 2px;
 }
