@@ -366,13 +366,13 @@ body {
 
 .container {
   position: relative;
-  width: 1160px;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   transform-style: preserve-3d;
   perspective: 500px;
-  margin-left: 15%;
+  margin-left: 10%;
 }
 .container .box {
   position: relative;
@@ -481,7 +481,7 @@ svg text {
 /* nav bar style */
 .sidebar {
   position: fixed;
-  width: 15%;
+  width: 8%;
   height: 100vh;
   background: var(--seven);
   font-size: 10px;
@@ -489,8 +489,8 @@ svg text {
 
 .nav {
   position: relative;
-  margin: 0 2%;
-  text-align: right;
+  margin: 0 5%;
+  text-align: center;
   top: 50%;
   transform: translateY(-50%);
   font-weight: bold;
@@ -513,6 +513,9 @@ svg text {
   color: var(--seventeen);
   display: block;
   transition: all ease-out 300ms;
+}
+.nav ul li a i {
+font-size: 30px;
 }
 
 .nav ul li:hover a {
@@ -564,7 +567,7 @@ svg text {
 /* yogamusic style */
 
 .musicContainer {
-  width: 52vw;
+  width: 51vw;
   height: 79vh;
   background: url("/assets/img/music.jpg");
   background-size: cover;
@@ -639,7 +642,7 @@ svg text {
 }
 
 .box-music-title {
-  width: 600px;
+  width: 650px;
   height: 200px;
   color: var(--eleven);
   padding: 40px;
@@ -689,7 +692,7 @@ svg text {
   transition: all ease-in-out 0.3s;
 }
 
-.musicContainer:hover .title {
+.musicContainer:hover .box-music-title {
   top: 0px;
   transition: all ease-in-out 0.8s;
   transition-delay: 0.8s;
@@ -757,14 +760,13 @@ audio::-webkit-media-controls-time-remaining-display {
   justify-content: end;
   padding: 10px;
   position: sticky;
-  padding: 10px;
-}
+ }
 
 .login-nav-item-1,
 .login-nav-item-2 {
   color: #666666;
   font-size: 18px;
-  padding: 5px 10px;
+  padding: 5px 20px;
   text-decoration: none;
 }
 .login-nav-item-1,
@@ -1082,4 +1084,8 @@ textarea {
  color:  #666666;
  text-transform: uppercase;
  text-align: center;
+}
+.note-action-icons {
+  display: flex;
+  justify-content: space-around;
 }
