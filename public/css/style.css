@@ -1,6 +1,28 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:600&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Cairo");
 
+/* root color variables */
+:root {
+  --one: #fff;
+  --two: #999;
+  --three: #dcdcdc;
+  --four: #616161;
+  --five: #000;
+  --six: #abb0c5;
+  --seven: #ababab;
+  --eight: #ffffffbf;
+  --nine: #a8a6a6;
+  --ten: #111;
+  --eleven: #222222;
+  --twelve: #9b9a9a;
+  --thirteen: #333;
+  --fourteen: #ccc;
+  --fifteen: #b1d4e0;
+  --sixteen: #b1b4e0b3;
+  --seventeen: #494949;
+  
+}
+
 *,
 *::before,
 *::after {
@@ -26,7 +48,7 @@ body {
 /* title style */
 .title {
   text-align: center;
-  color: #fff;
+  color: var(--one);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,7 +75,7 @@ body {
 .section-title {
   font-size: 32px;
   letter-spacing: 1px;
-  color: #fff;
+  color: var(--one);
 }
 
 .forms {
@@ -99,7 +121,7 @@ body {
   font-family: inherit;
   font-size: 16px;
   letter-spacing: 0.5px;
-  color: #999;
+  color: var(--four);
   background-color: transparent;
   border: none;
   outline: none;
@@ -108,12 +130,12 @@ body {
 }
 
 .form-wrapper.is-active .switcher-login {
-  color: #fff;
+  color: var(--one);
   transform: translateX(90px);
 }
 
 .form-wrapper.is-active .switcher-signup {
-  color: #fff;
+  color: var(--one);
   transform: translateX(-90px);
 }
 
@@ -170,28 +192,28 @@ body {
 
 @keyframes showLogin {
   0% {
-    background: #dcdcdc;
+    background: var(--three);
     transform: translate(40%, 10px);
   }
   50% {
     transform: translate(0, 0);
   }
   100% {
-    background-color: #fff;
+    background-color: var(--one);
     transform: translate(35%, -20px);
   }
 }
 
 @keyframes hideLogin {
   0% {
-    background-color: #fff;
+    background-color: var(--one);
     transform: translate(35%, -20px);
   }
   50% {
     transform: translate(0, 0);
   }
   100% {
-    background: #dcdcdc;
+    background: var(--three);
     transform: translate(40%, 10px);
   }
 }
@@ -206,28 +228,28 @@ body {
 
 @keyframes showSignup {
   0% {
-    background: #dcdcdc;
+    background: var(--three);
     transform: translate(-40%, 10px) scaleY(0.8);
   }
   50% {
     transform: translate(0, 0) scaleY(0.8);
   }
   100% {
-    background-color: #fff;
+    background-color: var(--one);
     transform: translate(-35%, -20px) scaleY(1);
   }
 }
 
 @keyframes hideSignup {
   0% {
-    background-color: #fff;
+    background-color: var(--one);
     transform: translate(-35%, -20px) scaleY(1);
   }
   50% {
     transform: translate(0, 0) scaleY(0.8);
   }
   100% {
-    background: #dcdcdc;
+    background: var(--three);
     transform: translate(-40%, 10px) scaleY(0.8);
   }
 }
@@ -269,7 +291,7 @@ body {
 
 .input-block label {
   font-size: 14px;
-  color: #616161;
+  color: var(--four);
 }
 
 .input-block input {
@@ -280,9 +302,9 @@ body {
   padding-left: 15px;
   font-size: 16px;
   line-height: 40px;
-  color: #494949;
-  background: #dcdcdc;
-  border: 1px solid #616161;
+  color: var(--seventeen);
+  background: var(--three);
+  border: 1px solid var(--four);
   border-radius: 2px;
 }
 
@@ -296,7 +318,7 @@ body {
   border-radius: 25px;
   border: none;
   transition: all 0.3s ease-out;
-  color: #494949;
+  color: var(--seventeen);
 }
 
 .form-wrapper.is-active .form [type="submit"] {
@@ -387,7 +409,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #abb0c5, #000);
+  background: linear-gradient(180deg, var(--six), var(--five));
   z-index: 1;
   opacity: 0;
   transition: 0.5s;
@@ -417,7 +439,7 @@ body {
   box-sizing: border-box;
 }
 .container .box .content h2 {
-  color: #fff;
+  color: var(--one);
   transition: 0.5s;
   text-transform: uppercase;
   margin-bottom: 5px;
@@ -429,7 +451,7 @@ body {
   transform: translateY(0px);
 }
 .container .box .content p {
-  color: #fff;
+  color: var(--one);
   transition: 0.5s;
   font-size: 14px;
   transform: translateY(200px);
@@ -443,13 +465,13 @@ body {
 svg text {
   text-transform: uppercase;
   animation: stroke 8s infinite alternate;
-  stroke: #dcdcdc;
+  stroke: var(--two);
   font-size: 50px;
   font-family: Cairo;
 }
 @keyframes stroke {
   0% {
-    fill: #dcdcdc;
+    fill: var(--two);
     stroke: transparent;
     stroke-dashoffset: 25%;
     stroke-dasharray: 0 50%;
@@ -461,7 +483,7 @@ svg text {
   position: fixed;
   width: 15%;
   height: 100vh;
-  background: #ababab;
+  background: var(--seven);
   font-size: 10px;
 }
 
@@ -488,13 +510,13 @@ svg text {
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 0.4em;
-  color: #494949;
+  color: var(--seventeen);
   display: block;
   transition: all ease-out 300ms;
 }
 
 .nav ul li:hover a {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--eight);
 }
 
 .nav ul li:after {
@@ -549,7 +571,7 @@ svg text {
   opacity: 0.9;
   margin: auto;
   border: 10px solid #a8a6a6;
-  outline: 1px solid #111;
+  outline: 1px solid var(--ten);
   overflow: hidden;
   transition: all ease-in-out 1s;
   margin-top: 50px;
@@ -619,7 +641,7 @@ svg text {
 .box-music-title {
   width: 600px;
   height: 200px;
-  color: #222222;
+  color: var(--eleven);
   padding: 40px;
   line-height: 140%;
   display: flex;
@@ -651,7 +673,7 @@ svg text {
 
 .song {
   width: 550px;
-  background: #9b9a9a;
+  background: var(--twelve);
   padding: 10px;
   margin: 10px 0px;
   display: flex;
@@ -660,7 +682,7 @@ svg text {
   font-size: 15px;
   font-weight: 700;
   color: #cfe4e9;
-  border: 2px solid #333;
+  border: 2px solid var(--thirteen);
   border-radius: 10px;
   box-shadow: 5px 5px 20px;
   text-decoration: none;
@@ -675,12 +697,12 @@ svg text {
 
 .song i {
   font-size: 20px;
-  color: #ccc;
+  color: var(--fourteen);
   padding: 10px;
 }
 
 .song:hover {
-  color: white;
+  color: var(--one);
   font-size: 16px;
   transition: all ease-in-out 0.3s;
   cursor: pointer;
@@ -718,15 +740,15 @@ audio::-webkit-media-controls-panel {
   background-color: #666666;
 }
 audio::-webkit-media-controls-play-button {
-  background-color: #b1d4e0;
+  background-color: var(--fifteen);
   border-radius: 50%;
 }
 
 audio::-webkit-media-controls-play-button:hover {
-  background-color: rgba(177, 212, 224, 0.7);
+  background-color: var(--fifteen);
 }
 audio::-webkit-media-controls-time-remaining-display {
-  color: #fff;
+  color: var(--one);
 }
 
 /* login nav bar section style */
@@ -757,7 +779,7 @@ audio::-webkit-media-controls-time-remaining-display {
   -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.4s ease 0s;
   border-radius: 50px;
-  border: 1px solid #333;
+  border: 1px solid var(--thirteen);
 }
 
 /* Style the modal container */

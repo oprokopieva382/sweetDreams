@@ -35,7 +35,7 @@ const addNewNoteHandler = async (event) => {
 
       modal.style.display = "none";
       noteVisibilityWithModal.style.display = "flex";
-    //   document.location.replace("/mynotes");
+      document.location.replace("/mynotes");
     } else {
       alert("Failed to create note");
     }
