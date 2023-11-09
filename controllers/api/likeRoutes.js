@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Video } = require("../../models");
+const { Like } = require("../../models");
 
 router.get("/:id", async (req, res) => {
   try {
