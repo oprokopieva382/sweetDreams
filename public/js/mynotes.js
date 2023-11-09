@@ -89,7 +89,8 @@ const showNoteModalFormToUpdate = () => {
   noteVisibilityWithModal.style.display = "none";
   modalUpdate.style.display = "block";
 };
-modal.addEventListener("click", (event) => {
+
+modalUpdate.addEventListener("click", (event) => {
   if (event.target === modalUpdate) {
     modalUpdate.style.display = "none";
     document.location.reload("/mynotes");
