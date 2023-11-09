@@ -1,19 +1,32 @@
+<video autoplay muted id="background-video">
+  <source src="/assets/video/branchShadowVideo.mp4" type="video/mp4" />
+</video>
 
-  <video autoplay muted id="background-video">
-      <source src="/assets/video/branchShadowVideo.mp4" type="video/mp4" />
-  </video>
- 
- <section class="login-nav-bar">
-  <a href="/profile" class="login-nav-item-1"><i class="fa-solid fa-user fa-lg"></i> </a>
-  <div class="login-nav-item-2" id="logout"><i class="fa-solid fa-right-from-bracket fa-lg"></i></div>
+<section class="login-nav-bar">
+  <a href="/profile" class="login-nav-item-1"><i
+      class="fa-solid fa-user fa-lg"
+    ></i>
+  </a>
+  <div class="login-nav-item-2" id="logout"><i
+      class="fa-solid fa-right-from-bracket fa-lg"
+    ></i></div>
 </section>
 {{#each allVideos as |video|}}
-      <div class="video-layout">
-        <div class="video-row">
-          <div class="video-item">
-            <video
-              src={{video.video_url}}
-              controls
-            ></video>         
-           {{/each}}
-          
+  <div class="video-layout">
+    <div class="video-row">
+      <div class="video-item">
+       
+        <iframe
+          width="640"
+          height="360"
+          src={{video.video_url}}
+          title="10-Minute Meditation For Sleep"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+
+      </div>
+    </div>
+  </div>
+{{/each}}

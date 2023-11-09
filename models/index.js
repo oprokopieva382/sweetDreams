@@ -1,6 +1,7 @@
 const User = require("./User");
 const Note = require("./Note");
 const Video = require("./Video");
+const Like = require("./Like");
 
 User.hasMany(Note, {
   foreignKey: "user_id",
@@ -19,4 +20,4 @@ Video.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-module.exports = { User, Note, Video };
+module.exports = { User, Note, Video, Like };

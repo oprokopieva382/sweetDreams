@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-const { User, Video } = require("../models");
+const { User, Note, Video } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -28,7 +28,11 @@ router.get("/meditation", withAuth, async (req, res) => {
   // If the user is already logged in, redirect the request to another route
   try {
     //go get all the videos from db
-    const videos = await Video.findAll();
+    const videos = await Video.findAll({
+      where: {run_time: req.params.type},
+    order: [['run_time', 'ASC']]
+        
+    });
     //get the video objects out of the array
     const allVideos = videos.map((video) => video.get({ plain: true }));
     //show the meditation page and give it all of the video data
