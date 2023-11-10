@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-const { User, Note, Video } = require("../models");
+const { User, Note, Video, Song, Like } = require("../models");
+
 
 router.get("/", async (req, res) => {
   try {
@@ -29,9 +30,9 @@ router.get("/meditation", withAuth, async (req, res) => {
   try {
     //go get all the videos from db
     const videos = await Video.findAll({
-      where: {run_time: req.params.type},
-    order: [['run_time', 'ASC']]
-        
+      where: { run_time: req.params.type },
+      order: [["run_time", "ASC"]],
+
     });
     //get the video objects out of the array
     const allVideos = videos.map((video) => video.get({ plain: true }));
@@ -51,10 +52,15 @@ router.get("/boringbooks", withAuth, (req, res) => {
   }
 });
 
-router.get("/yogamusic", withAuth, (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+router.get("/yogamusic", withAuth, async (req, res) => {
   try {
-    res.render("yogamusic");
+    const allSongs = await Song.findAll();
+
+    const data = allSongs.map((song) => song.get({ plain: true }));
+
+    res.render("yogamusic", {
+      allSongs: data,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -82,6 +88,7 @@ router.get("/mynotes", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {include: Note,
+
       attributes: { exclude: ["password"] },
     });
 
@@ -93,6 +100,24 @@ router.get("/mynotes", withAuth, async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+
+router.get("/mysongs", withAuth, async (req, res) => {
+  try {
+    const likedSongs = await Like.findAll({
+      where: { user_id: req.session.user_id },
+      include: Song,
+    });
+    console.log(likedSongs);
+    const data = likedSongs.map((song) => song.get({ plain: true }));
+    
+    res.render("mysongs", { likedSongs: data });
+
+    } catch (error) {
+    console.error("Error occurred while fetching liked songs", error);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 
