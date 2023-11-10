@@ -101,4 +101,20 @@ router.get("/mynotes", withAuth, async (req, res) => {
   }
 });
 
+
+router.get("/mysongs", withAuth, async (req, res) => {
+  try {
+    const likedSongs = await Like.findAll({
+      where: { user_id: req.session.user_id },
+      include: Song,
+    });
+
+    res.render("mysongs", { likedSongs });
+  } catch (error) {
+    console.error("Error occurred while fetching liked songs", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+
 module.exports = router;
