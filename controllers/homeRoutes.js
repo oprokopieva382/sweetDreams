@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const withAuth = require("../../utils/auth");
-const { User, Note, Video } = require("../../models");
+const withAuth = require("../utils/auth");
+const { User, Note, Video } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -29,9 +29,8 @@ router.get("/meditation", withAuth, async (req, res) => {
   try {
     //go get all the videos from db
     const videos = await Video.findAll({
-      where: {run_time: req.params.type},
-    order: [['run_time', 'ASC']]
-        
+      where: { run_time: req.params.type },
+      order: [["run_time", "ASC"]],
     });
     //get the video objects out of the array
     const allVideos = videos.map((video) => video.get({ plain: true }));
@@ -81,7 +80,8 @@ router.get("/profile", withAuth, async (req, res) => {
 router.get("/mynotes", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {include: Note,
+    const userData = await User.findByPk(req.session.user_id, {
+      include: Note,
       attributes: { exclude: ["password"] },
     });
 
