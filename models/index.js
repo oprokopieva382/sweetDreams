@@ -2,6 +2,7 @@ const User = require("./User");
 const Note = require("./Note");
 const Video = require("./Video");
 const Like = require("./Like");
+const Book = require("./Book");
 
 User.hasMany(Note, {
   foreignKey: "user_id",
@@ -19,5 +20,13 @@ User.hasMany(Video, {
 Video.belongsTo(User, {
   foreignKey: "user_id",
 });
+User.hasMany(Book, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
 
-module.exports = { User, Note, Video, Like };
+Book.belongsTo(User, {
+  foreignKey: "user_id",
+});
+
+module.exports = { User, Note, Video, Like, Book };
