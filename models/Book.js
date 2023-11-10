@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class MyBooks extends Model {}
+class Book extends Model {}
 
-MyBooks.init(
+Book.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,33 +11,26 @@ MyBooks.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    day: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    date: {
+    author: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    content: {
+    genre: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
+      allowNull: true,
     },
   },
   {
     sequelize,
-    timestamps: false,
-    freezeTableName: true,
+    timestamps: true,
+    freezeTableName: false,
     underscored: true,
-    modelName: "note",
+    modelName: "book",
   }
 );
 
-module.exports = Note;
+module.exports = Book;
