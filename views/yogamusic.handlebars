@@ -24,6 +24,10 @@
 <div class="musiclist">
   {{#each allSongs as |song|}}
   <div class="song">
+    <i
+      class="fa-solid fa-heart fa-lg likemusic"
+      data-song-id={{song.id}}
+      ></i>
     <audio controls>
       <source
         src="{{song.source}}"
