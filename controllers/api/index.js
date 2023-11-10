@@ -4,7 +4,6 @@ const noteRoutes = require("./noteRoutes");
 const videoRoutes = require("./videoRoutes");
 const likeRoutes = require("./likeRoutes");
 
-
 router.use("/users", userRoutes);
 router.use("/notes", noteRoutes);
 router.use("/videos", videoRoutes);
