@@ -18,7 +18,14 @@ Like.init(
             model:"video",
             key: "id",
         }
-    }
+    },
+    book_id: {
+      type: DataTypes.INTEGER,
+      references: {
+          model:"book",
+          key: "id",
+      }
+  }
     },
   },
   {
