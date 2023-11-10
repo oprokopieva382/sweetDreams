@@ -50,12 +50,12 @@ router.get("/boringbooks", withAuth, (req, res) => {
   }
 });
 
-router.get("/yogamusic", async (req, res) => {
+router.get("/yogamusic", withAuth, async (req, res) => {
   try {
     const allSongs = await Song.findAll();
 
     const data = allSongs.map((song) => song.get({ plain: true }));
-    
+
     res.render("yogamusic", {
       allSongs: data,
     });

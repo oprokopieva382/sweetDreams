@@ -31,4 +31,8 @@ Song.belongsTo(User, {
   foreignKey: "user_id",
 });
 
+Like.belongsTo(Song, {
+  foreignKey: "song_id",
+});
+
 module.exports = { User, Note, Video, Like, Song };
