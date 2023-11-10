@@ -50,19 +50,14 @@ router.get("/boringbooks", withAuth, (req, res) => {
   }
 });
 
-router.get("/yogamusic", withAuth, async (req, res) => {
+router.get("/yogamusic", async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      include: Song,
-      attributes: { exclude: ["password"] },
-    });
+    const allSongs = await Song.findAll();
 
-    const user = userData.get({ plain: true });
-
+    const data = allSongs.map((song) => song.get({ plain: true }));
+    
     res.render("yogamusic", {
-      ...user,
-      logged_in: true,
+      allSongs: data,
     });
   } catch (err) {
     res.status(500).json(err);
