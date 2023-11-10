@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const { Video } = require("../../models");
+const { Like } = require("../../models");
 
-router.get("/:id", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const likeData = await Like.findAll({
-      where: {
-        user_id: req.session.user_id,
-      },
+      // where: {
+      //   user_id: req.session.user_id,
+      // },
     });
 
     if (!likeData) {
@@ -19,19 +19,18 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.post("/user/:id", async (req, res) => {
-  try {
-    
-    console.trace(req.params.id);
-    console.trace(req.session.user_id);
 
+router.post("/", async (req, res) => {
+  try {
     const likeData = await Like.create({
-      video_id: req.params.id,
       user_id: req.session.user_id,
+      video_id: req.body.video_id,
     });
     res.status(200).json(likeData);
   } catch (err) {
-    res.status(400).json(err);
+    console.log(err);
+    res.status(500).json(err);
   }
 });
+
 module.exports = router;

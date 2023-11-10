@@ -12,14 +12,14 @@ Like.init(
         model: "user",
         key: "id",
       },
-    video_id: {
+    },
+     video_id: {
         type: DataTypes.INTEGER,
         references: {
             model:"video",
             key: "id",
         }
     }
-    },
   },
   {
     sequelize,

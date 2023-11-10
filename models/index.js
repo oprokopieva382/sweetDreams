@@ -11,13 +11,16 @@ User.hasMany(Note, {
 Note.belongsTo(User, {
   foreignKey: "user_id",
 });
-User.hasMany(Video, {
-  foreignKey: "user_id",
-  onDelete: "CASCADE",
-});
 
-Video.belongsTo(User, {
-  foreignKey: "user_id",
+// User.hasMany(Video, {
+//   foreignKey: "user_id",
+//   through: Like,
+//   onDelete: "CASCADE",
+// });
+
+Video.belongsToMany(User, {
+  through: Like,
+  foreignKey: "user_id"
 });
 
 module.exports = { User, Note, Video, Like };
