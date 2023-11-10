@@ -22,11 +22,10 @@ router.get("/:id", async (req, res) => {
 
 router.post("/user/:id", async (req, res) => {
   try {
-    
     console.trace(req.params.id);
     console.trace(req.session.user_id);
 
-    const likeData = await Video.create({
+    const likeData = await Like.create({
       video_id: req.params.id,
       user_id: req.session.user_id,
     });
@@ -44,7 +43,7 @@ router.get("/songs/:songId", async (req, res) => {
         user_id: req.session.user_id,
         song_id: req.params.songId,
       },
-      include: Song, 
+      include: Song,
     });
 
     if (!likeData) {
@@ -73,11 +72,11 @@ router.post("/songs/:songId", async (req, res) => {
       return;
     }
 
-      const likeData = await Like.create({
+    const likeData = await Like.create({
       song_id: req.params.songId,
       user_id: req.session.user_id,
     });
-
+  
     res.status(200).json(likeData);
   } catch (err) {
     res.status(500).json(err);

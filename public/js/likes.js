@@ -1,9 +1,10 @@
 const likeSongIcons = document.querySelectorAll(".likemusic");
 
 const likeSongHandler = async (songId) => {
+  console.log("like")
   try {
     // Send a request to the server to like the song
-    const response = await fetch(`/api/songs/${songId}`, {
+    const response = await fetch(`/api/likes/songs/${songId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

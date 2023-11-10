@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-const { User, Note, Video, Song } = require("../models");
+const { User, Note, Video, Song, Like } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -101,20 +101,21 @@ router.get("/mynotes", withAuth, async (req, res) => {
   }
 });
 
-
 router.get("/mysongs", withAuth, async (req, res) => {
   try {
     const likedSongs = await Like.findAll({
       where: { user_id: req.session.user_id },
       include: Song,
     });
+    console.log(likedSongs);
+    const data = likedSongs.map((song) => song.get({ plain: true }));
+    res.render("mysongs", { likedSongs: data });
 
-    res.render("mysongs", { likedSongs });
+    // res.render("mysongs", { likedSongs: data });
   } catch (error) {
     console.error("Error occurred while fetching liked songs", error);
     res.status(500).json({ message: "Internal server error" });
   }
 });
-
 
 module.exports = router;
