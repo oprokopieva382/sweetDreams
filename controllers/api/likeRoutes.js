@@ -44,7 +44,7 @@ router.get("/songs/:songId", async (req, res) => {
         user_id: req.session.user_id,
         song_id: req.params.songId,
       },
-      include: Song, // Include the associated song data
+      include: Song, 
     });
 
     if (!likeData) {
