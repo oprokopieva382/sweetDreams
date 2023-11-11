@@ -1,48 +1,47 @@
 const { Book } = require("../models");
 const bookData = [
 
-
 {
-title: "About the Brothers Grimm",
+title: "About the Brothers Grimm"
 },
 {
 title: "Ashputtal",
 },
 {
-title: "Briar Rose",
+title: "Briar Rose"
 },
 {
-title: "Clever Elsie",
+title: "Clever Elsie"
 },
 {
-title: "Hansel and Gretel",
+title: "Hansel and Gretel"
 },
 {
-title: "Jorinda and Jorindel",
+title: "Jorinda and Jorindel"
 },
 {
-title: "King Grisly-Beard",
+title: "King Grisly-Beard"
 },
 {
-title: "Mother Holle",
+title: "Mother Holle"
 },
 {
-title: "Old Sultan",
+title: "Old Sultan"
 },
 {
-title: "Snowdrop",
+title: "Snowdrop"
 },
 {
-title: "The Dog and the Sparrow",
+title: "The Dog and the Sparrow"
 },
 {
-title: "The Elves and the Shoemaker",
+title: "The Elves and the Shoemaker"
 },
 {
-title: "The Fisherman and his Wife",
+title: "The Fisherman and his Wife"
 },
 {
-title: "The Twelve Dancing Princesses",
+title: "The Twelve Dancing Princesses"
 },
 ]
 const seedComments = () => Book.bulkCreate(bookData);
