@@ -14,7 +14,6 @@ Book.init(
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
   },
   {
     sequelize,
