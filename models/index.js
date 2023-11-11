@@ -1,11 +1,9 @@
 const User = require("./User");
 const Note = require("./Note");
 const Video = require("./Video");
+const Book = require("./Book");
 const Like = require("./Like");
 const Song = require("./Song");
-
-//FREIDA
-const Book = require("./Book");
 //------------------------
 
 User.hasMany(Note, {
