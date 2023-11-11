@@ -44,7 +44,7 @@ Like.belongsTo(Song, {
 User.hasMany(Like, { foreignKey: "user_id" });
 Like.belongsTo(User, { foreignKey: "user_id" });
 
-//FREIDA
+
 User.hasMany(Book, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
@@ -53,6 +53,13 @@ User.hasMany(Book, {
 Book.belongsTo(User, {
   foreignKey: "user_id",
 });
+
+Book.hasMany(Like, {
+  foreignKey: "book_id",
+});
+Like.belongsTo(Book, {
+  foreignKey: "book_id",
+});
 //------------------------
 
-module.exports = { User, Note, Video, Like, Song };
+module.exports = { User, Note, Video, Like, Song, Book };

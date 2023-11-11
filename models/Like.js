@@ -33,6 +33,7 @@ Like.init(
     //FREIDA
     book_id: {
       type: DataTypes.INTEGER,
+      allowNull: true,
       references: {
         model: "book",
         key: "id",
