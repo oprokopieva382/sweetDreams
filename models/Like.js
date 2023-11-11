@@ -18,7 +18,7 @@ Like.init(
       references: {
         model: "video",
         key: "id",
-      }
+      },
     },
 
     song_id: {
@@ -37,14 +37,14 @@ Like.init(
       references: {
         model: "book",
         key: "id",
-      }
-    }
+      },
+    },
     //------------
   },
   {
     sequelize,
     timestamps: false,
-    freezeTableName: false,
+    freezeTableName: true,
     underscored: true,
     modelName: "like",
   }
