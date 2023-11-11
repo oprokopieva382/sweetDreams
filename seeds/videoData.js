@@ -32,5 +32,5 @@ const videoData = [
     author: "john doe",
   },
 ];
-const seedComments = () => Book.bulkCreate(bookData);
+const seedComments = () => Video.bulkCreate(videoData);
 module.exports = seedComments;

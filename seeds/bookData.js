@@ -44,6 +44,6 @@ title: "The Fisherman and his Wife",
 {
 title: "The Twelve Dancing Princesses",
 },
-
-
 ]
+const seedComments = () => Book.bulkCreate(bookData);
+module.exports = seedComments;
