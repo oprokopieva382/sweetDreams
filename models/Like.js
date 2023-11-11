@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Like extends Model {}
+class Like extends Model { }
 
 Like.init(
   {
@@ -18,8 +18,9 @@ Like.init(
       references: {
         model: "video",
         key: "id",
-      },
+      }
     },
+
     song_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -28,6 +29,17 @@ Like.init(
         key: "id",
       },
     },
+
+    //FREIDA
+    book_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: "book",
+        key: "id",
+      }
+    }
+    //------------
   },
   {
     sequelize,
