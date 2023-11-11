@@ -30,7 +30,6 @@ Like.init(
       },
     },
 
-    //FREIDA
     book_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -39,7 +38,6 @@ Like.init(
         key: "id",
       },
     },
-    //------------
   },
   {
     sequelize,
