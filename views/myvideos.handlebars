@@ -1,0 +1,47 @@
+<section class="login-nav-bar">
+  <a href="/profile" class="login-nav-item-1"><i
+      class="fa-solid fa-user fa-lg"
+    ></i>
+  </a>
+  <div class="login-nav-item-2" id="logout"><i
+      class="fa-solid fa-right-from-bracket fa-lg"
+    ></i></div>
+</section>
+
+<h1>My Saved Videos</h1>
+
+{{#if user.videos}}
+  <div class="video-layout">
+    <div >
+      {{#each user.videos}}
+        <div class="song">
+          {{!-- <div>
+          
+            <i
+              data-id={{id}}
+              class="fav-icon fa-solid fa-heart fa-lg"
+            ></i>
+        
+        </div> --}}
+          <div>{{title}}</div>
+          <iframe
+            width="640"
+            height="360"
+            src={{video_url}}
+            title="10-Minute Meditation For Sleep"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+
+        </div>
+
+      {{/each}}
+    </div>
+  </div>
+
+{{else}}
+
+  <p>no videos saved</p>
+
+{{/if}}

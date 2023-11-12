@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-const { User, Note, Video, Song, Like } = require("../models");
+const { User, Note, Video, Song, Like, SongLike, VideoLike } = require("../models");
 
 
 router.get("/", async (req, res) => {
@@ -30,18 +30,43 @@ router.get("/meditation", withAuth, async (req, res) => {
   try {
     //go get all the videos from db
     const videos = await Video.findAll({
-      where: { run_time: req.params.type },
+      // where: { 
+      //   run_time: req.params.type 
+      // },
       order: [["run_time", "ASC"]],
-
     });
     //get the video objects out of the array
     const allVideos = videos.map((video) => video.get({ plain: true }));
     //show the meditation page and give it all of the video data
-    res.render("meditation", { allVideos });
+    res.render("meditation", { 
+      allVideos 
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// router.get("/meditation/:length", withAuth, async (req, res) => {
+//   // If the user is already logged in, redirect the request to another route
+//   try {
+//     //go get all the videos from db
+//     const videos = await Video.findAll({
+//       where: { 
+//         run_time: req.params.length 
+//       },
+//       // order: [["run_time", "ASC"]],
+//     });
+//     //get the video objects out of the array
+//     const allVideos = videos.map((video) => video.get({ plain: true }));
+//     //show the meditation page and give it all of the video data
+//     res.render("meditation", { 
+//       allVideos 
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
 
 router.get("/boringbooks", withAuth, (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -70,10 +95,13 @@ router.get("/profile", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
+      include: [{ model: Video, through: VideoLike},{model: Song, through: SongLike}],
       attributes: { exclude: ["password"] },
     });
 
     const user = userData.get({ plain: true });
+
+console.log(user);
 
     res.render("profile", {
       ...user,
@@ -84,11 +112,32 @@ router.get("/profile", withAuth, async (req, res) => {
   }
 });
 
+router.get("/myvideo", withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      include: { model: Video, through: VideoLike},
+      attributes: { exclude: ["password"] },
+    });
+
+    const user = userData.get({ plain: true });
+
+console.log(user);
+
+    res.render("myvideos", {
+      user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/mynotes", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {include: Note,
-
+    const userData = await User.findByPk(req.session.user_id, {
+      include: Note,
       attributes: { exclude: ["password"] },
     });
 
@@ -106,14 +155,16 @@ router.get("/mynotes", withAuth, async (req, res) => {
 
 router.get("/mysongs", withAuth, async (req, res) => {
   try {
-    const likedSongs = await Like.findAll({
-      where: { user_id: req.session.user_id },
-      include: Song,
+    const userData = await User.findByPk(req.session.user_id, {
+      include: { model: Song, through: SongLike},
+      attributes: { exclude: ["password"] },
     });
-    console.log(likedSongs);
-    const data = likedSongs.map((song) => song.get({ plain: true }));
+
+    const user = userData.get({ plain: true });
+
+console.log(user);
     
-    res.render("mysongs", { likedSongs: data });
+    res.render("mysongs", { likedSongs: user });
 
     } catch (error) {
     console.error("Error occurred while fetching liked songs", error);

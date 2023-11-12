@@ -14,8 +14,16 @@
 {{#each allVideos as |video|}}
   <div class="video-layout">
     <div class="video-row">
-      <div class="video-item">
-       
+      <div class="song">
+        <div>
+          
+            <i
+              data-id={{video.id}}
+              class="fav-icon fa-solid fa-heart fa-lg"
+            ></i>
+        
+        </div>
+        <div>{{video.title}}</div>
         <iframe
           width="640"
           height="360"
@@ -30,3 +38,6 @@
     </div>
   </div>
 {{/each}}
+
+
+<script src="/js/likes.js"></script>
