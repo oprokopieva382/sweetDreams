@@ -48,8 +48,8 @@ User.belongsToMany(Book, {
 });
 
 Book.belongsToMany(User, {
-  foreignKey: "song_id",
+  foreignKey: "book_id",
   through: BookLike
 });
 
-module.exports = { User, Note, Video, Book, VideoLike, SongLike, Song };
+module.exports = { User, Note, Video, Book, VideoLike, SongLike, Song, BookLike };
