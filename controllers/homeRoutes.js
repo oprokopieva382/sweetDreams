@@ -8,8 +8,9 @@ const {
   Book,
   SongLike,
   VideoLike,
+  BookLike
 } = require("../models");
-const BookLike = require("../models/BookLike");
+
 
 //Homepage render(project entry)
 router.get("/", async (req, res) => {
@@ -180,7 +181,9 @@ router.get("/mybooks", withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
     // console.log(user);
-    res.render("mybooks", { likedBooks: user });
+    res.render("mybooks", { 
+      user,
+      logged_in: true, });
   } catch (error) {
     console.error("Error occurred while fetching liked books", error);
     res.status(500).json({ message: "Internal server error" });

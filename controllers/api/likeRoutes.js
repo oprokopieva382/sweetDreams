@@ -44,7 +44,7 @@ router.post("/songlike", async (req, res) => {
     });
     res.status(200).json(likeData);
   } catch (err) {
-    console.log(err);
+    console.log(err);c
     res.status(500).json(err);
   }
 });
@@ -88,7 +88,7 @@ router.delete("/songlike/:id", async (req, res) => {
 //CREATE liked book request
 router.post("/booklike", async (req, res) => {
   try {
-    const likeData = await bookLike.create({
+    const likeData = await BookLike.create({
       user_id: req.session.user_id,
       book_id: req.body.book_id,
     });

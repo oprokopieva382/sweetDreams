@@ -11,12 +11,12 @@
     ></i></div>
 </section>
 <span class="favoriteSongs"><i class="fa-solid fa-book fa-sm"></i>
-  My favorite books
+  My favorite Boring books
   <i class="fa-solid fa-book fa-sm"></i></span>
 <div class="musiclist">
   {{#each likedBooks.books}}
     <div class="song">
-      <i class="fa-solid fa-trash fa-lg deleteLikeSong" data-song-id={{id}}></i>
+      <i class="fa-solid fa-trash fa-lg deleteLikeBook" data-song-id={{id}}></i>
       <audio controls>
         <source src="{{source}}" type="audio/mp3" />
       </audio>

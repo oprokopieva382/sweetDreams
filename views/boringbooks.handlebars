@@ -11,13 +11,12 @@
     ></i></div>
 </section>
 <span class="favoriteBooks"><i class="fa-solid fa-book fa-sm"></i>
-  My favorite boring books
+  My boring books
   <i class="fa-solid fa-book fa-sm"></i></span>
  <div class="booklist">
 {{#each allBooks as |book|}}
     <div class="song">
-    <a href="/favoriteBook" data-id="{{book.id}}">
-      <i class="fa-solid fa-heart fa-lg bookLikeIcon" id="{{book.id}}"></i>
+      <i class="fa-solid fa-heart fa-lg bookLikeIcon" data-id="{{book.id}}"></i>
     </a>
     <audio controls>
       <source src="{{book.source}}" type="audio/mp3" />
