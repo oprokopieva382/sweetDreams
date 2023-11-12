@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { SongLike, VideoLike } = require("../../models");
 
+//GET all liked video request
 router.get("/videolikes", async (req, res) => {
   try {
     const likeData = await VideoLike.findAll({
@@ -20,6 +21,7 @@ router.get("/videolikes", async (req, res) => {
   }
 });
 
+//CREATE liked video request
 router.post("/videolike", async (req, res) => {
   try {
     const likeData = await VideoLike.create({
@@ -32,6 +34,8 @@ router.post("/videolike", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//CREATE liked song request
 router.post("/songlike", async (req, res) => {
   try {
     const likeData = await SongLike.create({
@@ -45,7 +49,7 @@ router.post("/songlike", async (req, res) => {
   }
 });
 
-// Get liked songs for a specific user
+// GET all liked songs 
 router.get("/songs", async (req, res) => {
   try {
     const likeData = await SongLike.findAll();
@@ -60,31 +64,5 @@ router.get("/songs", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-// POST Like a song
-// router.post("/songs/:songId", async (req, res) => {
-//   try {
-//     const existingLike = await Like.findOne({
-//       where: {
-//         song_id: req.params.songId,
-//         user_id: req.session.user_id,
-//       },
-//     });
-
-//     if (existingLike) {
-//       res.status(400).json({ message: "Song is already liked by the user." });
-//       return;
-//     }
-
-//     const likeData = await Like.create({
-//       song_id: req.params.songId,
-//       user_id: req.session.user_id,
-//     });
-  
-//     res.status(200).json(likeData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 module.exports = router;

@@ -2,6 +2,7 @@ const router = require("express").Router();
 const withAuth = require("../../utils/auth");
 const { Note } = require("../../models");
 
+//CREATE new note request
 router.post("/", withAuth, async (req, res) => {
   try {
     const newNote = await Note.create({
@@ -15,6 +16,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+//DELETE note request by id
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const noteData = await Note.destroy({
@@ -35,6 +37,7 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
+//UPDATE note request by id
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const { day, date, content } = req.body;
@@ -60,6 +63,7 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
+//GET note request by id
 router.get("/:id", withAuth, async (req, res) => {
   try {
     const noteData = await Note.findByPk(req.params.id, {
@@ -80,6 +84,5 @@ router.get("/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 module.exports = router;
