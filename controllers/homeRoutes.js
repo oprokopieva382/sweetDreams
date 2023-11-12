@@ -59,7 +59,13 @@ router.get("/meditation", withAuth, async (req, res) => {
 //Boring books page render
 router.get("/boringbooks", withAuth, async(req, res) => {
    try {
-     res.render("boringbooks");
+     const allBooks = await Book.findAll();
+
+     const data = allBooks.map((book) => book.get({ plain: true }));
+
+     res.render("boringbooks", {
+       allBooks: data,
+     });
    } catch (err) {
      res.status(500).json(err);
    }
