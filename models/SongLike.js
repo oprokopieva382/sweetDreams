@@ -13,13 +13,6 @@ SongLike.init(
         key: "id",
       },
     },
-    // video_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "video",
-    //     key: "id",
-    //   },
-    // },
 
     song_id: {
       type: DataTypes.INTEGER,
@@ -29,15 +22,6 @@ SongLike.init(
         key: "id",
       },
     },
-
-    // book_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: true,
-    //   references: {
-    //     model: "book",
-    //     key: "id",
-    //   },
-    // },
   },
   {
     sequelize,

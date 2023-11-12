@@ -20,24 +20,6 @@ VideoLike.init(
         key: "id",
       },
     },
-
-    // song_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: true,
-    //   references: {
-    //     model: "song",
-    //     key: "id",
-    //   },
-    // },
-
-    // book_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: true,
-    //   references: {
-    //     model: "book",
-    //     key: "id",
-    //   },
-    // },
   },
   {
     sequelize,

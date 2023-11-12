@@ -10,6 +10,7 @@ const dayToUpdate = document.querySelector(".day-to-update");
 const dateToUpdate = document.querySelector(".date-to-update");
 const textareaToUpdate = document.querySelector(".textarea-to-update");
 
+//note  modal display logic
 const showNoteModalForm = () => {
   noteVisibilityWithModal.style.display = "none";
   modal.style.display = "block";
@@ -23,6 +24,7 @@ modal.addEventListener("click", (event) => {
   }
 });
 
+//Add new note fetch request
 const addNewNoteHandler = async (event) => {
   event.preventDefault();
 
@@ -41,7 +43,6 @@ const addNewNoteHandler = async (event) => {
 
     if (response.ok) {
       noteForm.reset();
-
       modal.style.display = "none";
       noteVisibilityWithModal.style.display = "flex";
       document.location.replace("/mynotes");
@@ -51,6 +52,7 @@ const addNewNoteHandler = async (event) => {
   }
 };
 
+//Delete note fetch request
 const deleteNoteHandler = async (event) => {
   if (event.target.hasAttribute("note-id")) {
     const id = event.target.getAttribute("note-id");
@@ -59,14 +61,13 @@ const deleteNoteHandler = async (event) => {
       method: "DELETE",
     });
 
-    if (response.ok) {
-      document.location.replace("/mynotes");
-    } else {
-      alert("Failed to delete note");
-    }
+    response.ok
+      ? document.location.replace("/mynotes")
+      : alert("Failed to delete note");
   }
 };
 
+//Get note fetch request
 const getNoteDataById = async (id) => {
   try {
     const response = await fetch(`/api/notes/${id}`);
@@ -85,6 +86,7 @@ const getNoteDataById = async (id) => {
   }
 };
 
+//update note in modal logic
 const showNoteModalFormToUpdate = () => {
   noteVisibilityWithModal.style.display = "none";
   modalUpdate.style.display = "block";
