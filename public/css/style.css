@@ -502,6 +502,7 @@ svg text {
 }
 
 .nav ul {
+  padding-left: 20px;
   list-style: none;
   padding-right: 20px;
 }
@@ -1013,9 +1014,6 @@ textarea {
     font-size: 60px;
   }
 
-  @media screen and (max-width: 700px) {
-  }
-
 @media screen and (max-width: 600px) {
   h1 {
     text-align: center;
@@ -1023,6 +1021,25 @@ textarea {
     color: #f1faee;
     font-size: 2.125rem;
   }
+
+@media screen and (max-width: 425px) {
+  .recommendation {
+    width: fit-content;
+    padding-left: 97px;
+  }
+  svg {
+    width:auto;
+    padding-left: 97px;
+    padding-right: 0px;
+    text-align: center;
+  }
+  svg text {
+    font-size: 90px;
+  }
+  .sidebar {
+    height: -webkit-fill-available;
+  }
+}
 
   .roller {
     height: 2.6rem;
@@ -1052,8 +1069,15 @@ textarea {
       top: -6.375rem;
     }
   }
+}
+
+@media screen and (max-width: 330px) {
+
+  svg {
+    width: 330px;
+  }
   svg text {
-    font-size: 70px;
+    font-size: 90px;
   }
 }
 
