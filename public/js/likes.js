@@ -66,41 +66,27 @@ const like = async (id) => {
 };
 
 
-//logic to handle like book with event listener and fetch request
-// const bookLikeHandler = async (bookId) => {
-//   try {
-//     const response = await fetch(`/api/likes/booklike`, {
-//       method: "POST",
-//       body: JSON.stringify({ book_id: parseInt(bookId) }),
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
+// logic to handle like book with event listener and fetch request
+const bookLikeHandler = async (bookId) => {
+  try {
+    const response = await fetch(`/api/likes/booklike`, {
+      method: "POST",
+      body: JSON.stringify({ book_id: parseInt(bookId) }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-//     response.ok
-//       ? console.log("Book liked")
-//       : console.error("Failed to like the book");
-//   } catch (error) {
-//     console.error("Error occurred while liking the book", error);
-//   }
-// };
-
-// likeBook.forEach((icon) => {
-//   icon.addEventListener("click", () => bookLikeHandler(icon.dataset.bookId));
-// });
-
-for (i of likeBook) {
-  i.addEventListener("click", function (e) {
-    likedBook(e.target.dataset.id);
-  });
-}
-
-const likedBook = async (id) => {
-  const response = await fetch("/api/likes/booklike", {
-    method: "POST",
-    body: JSON.stringify({ book_id: parseInt(id) }),
-    headers: { "Content-Type": "application/json" },
-  });
-
-  console.log(response);
+    response.ok
+      ? console.log("Book liked")
+      : console.error("Failed to like the book");
+  } catch (error) {
+    console.error("Error occurred while liking the book", error);
+  }
 };
+
+likeBook.forEach((icon) => {
+  icon.addEventListener("click", () => bookLikeHandler(icon.dataset.bookId));
+});
+
+
