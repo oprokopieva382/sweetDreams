@@ -986,6 +986,12 @@ textarea {
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .sidebar {
+
+  }
+}
+
 @media screen and (max-width: 600px) {
   h1 {
     text-align: center;
