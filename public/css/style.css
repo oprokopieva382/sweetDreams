@@ -328,7 +328,7 @@ body {
 }
 
 /* cursor follow */
-#Wrap {
+/* #Wrap {
   height: 100vh;
 }
 
@@ -354,7 +354,7 @@ body {
 
 #Wrap .FollowBox:nth-child(4) {
   z-index: 1;
-}
+}  */
 
 /* profile style  */
 /* recommendation section */

@@ -11,16 +11,16 @@
     ></i></div>
 </section>
 <div class="musiclist">
-  {{#each likedSongs as |song|}}
+  {{#each likedSongs.songs }}
     <div class="song">
       <i
         class="fa-solid fa-trash fa-lg deleteLikeSong"
-        data-song-id={{song.Song.id}}
+        data-song-id={{id}}
       ></i>
       <audio controls>
-        <source src="{{song.Song.source}}" type="audio/mp3" />
+        <source src="{{source}}" type="audio/mp3" />
       </audio>
-      <i class="far fa-waveform"></i>{{song.Song.name}}
+      <i class="far fa-waveform"></i>{{name}}
     </div>
   {{/each}}
 </div>
