@@ -336,8 +336,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 200px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
 }
 
 #Wrap .FollowBox:nth-child(1) {
@@ -990,6 +990,16 @@ textarea {
 @media screen and (max-width: 1500px) {
   .sidebar {
     width: fit-content;
+  }
+  .container {
+    width: fit-content;
+  }
+}
+
+@media  screen and (max-width: 1000px) {
+  .container {
+    display: flex;
+    flex-direction: column;
   }
 }
 
