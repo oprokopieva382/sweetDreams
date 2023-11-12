@@ -498,6 +498,7 @@ svg text {
 
 .nav ul {
   list-style: none;
+  padding-right: 20px;
 }
 
 .nav ul li {
@@ -986,9 +987,9 @@ textarea {
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1500px) {
   .sidebar {
-
+    width: fit-content;
   }
 }
 
