@@ -5,10 +5,12 @@ const {
   Note,
   Video,
   Song,
-  Like,
+  Book,
   SongLike,
   VideoLike,
+  BookLike
 } = require("../models");
+
 
 //Homepage render(project entry)
 router.get("/", async (req, res) => {
@@ -57,13 +59,18 @@ router.get("/meditation", withAuth, async (req, res) => {
 });
 
 //Boring books page render
-router.get("/boringbooks", withAuth, (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  try {
-    res.render("boringbooks");
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get("/boringbooks", withAuth, async(req, res) => {
+   try {
+     const allBooks = await Book.findAll();
+
+     const data = allBooks.map((book) => book.get({ plain: true }));
+
+     res.render("boringbooks", {
+       allBooks: data,
+     });
+   } catch (err) {
+     res.status(500).json(err);
+   }
 });
 
 //Yoga music page render
@@ -161,6 +168,24 @@ router.get("/mysongs", withAuth, async (req, res) => {
     res.render("mysongs", { likedSongs: user });
   } catch (error) {
     console.error("Error occurred while fetching liked songs", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+//My books page render with data display(navbar)
+router.get("/mybooks", withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      include: { model: Book, through: BookLike },
+      attributes: { exclude: ["password"] },
+    });
+
+    const user = userData.get({ plain: true });
+    // console.log(user);
+    res.render("mybooks", { 
+      user,
+      logged_in: true, });
+  } catch (error) {
+    console.error("Error occurred while fetching liked books", error);
     res.status(500).json({ message: "Internal server error" });
   }
 });
