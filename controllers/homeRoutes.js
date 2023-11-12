@@ -5,7 +5,7 @@ const {
   Note,
   Video,
   Song,
-  Like,
+  Book,
   SongLike,
   VideoLike,
 } = require("../models");
@@ -57,13 +57,12 @@ router.get("/meditation", withAuth, async (req, res) => {
 });
 
 //Boring books page render
-router.get("/boringbooks", withAuth, (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  try {
-    res.render("boringbooks");
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get("/boringbooks", withAuth, async(req, res) => {
+   try {
+     res.render("boringbooks");
+   } catch (err) {
+     res.status(500).json(err);
+   }
 });
 
 //Yoga music page render

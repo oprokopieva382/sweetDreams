@@ -655,7 +655,7 @@ font-size: 30px;
   font-size: 270%;
 }
 
-.musiclist {
+.musiclist, .booklist {
   width: 600px;
   height: 100vh;
   margin-left: 40px;
