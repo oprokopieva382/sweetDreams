@@ -67,24 +67,24 @@ const like = async (id) => {
 
 
 //logic to handle like book with event listener and fetch request
-const bookLike = async (bookId) => {
+const bookLikeHandler = async (bookId) => {
   try {
-    const response = await fetch(`/api/likes/songlike`, {
+    const response = await fetch(`/api/likes/booklike`, {
       method: "POST",
-      body: JSON.stringify({ song_id: parseInt(bookId) }),
+      body: JSON.stringify({ book_id: parseInt(bookId) }),
       headers: {
         "Content-Type": "application/json",
       },
     });
 
     response.ok
-      ? console.log("Song liked")
-      : console.error("Failed to like the song");
+      ? console.log("Book liked")
+      : console.error("Failed to like the book");
   } catch (error) {
-    console.error("Error occurred while liking the song", error);
+    console.error("Error occurred while liking the book", error);
   }
 };
 
-likeSongIcons.forEach((icon) => {
-  icon.addEventListener("click", () => likeSongHandler(icon.dataset.songId));
+bookLike.forEach((icon) => {
+  icon.addEventListener("click", () => bookLikeHandlerHandler(icon.dataset.bookId));
 });
