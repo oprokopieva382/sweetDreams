@@ -52,9 +52,4 @@ Book.belongsToMany(User, {
   through: BookLike
 });
 
-
-
-
-
 module.exports = { User, Note, Video, Book, VideoLike, SongLike, Song };
-

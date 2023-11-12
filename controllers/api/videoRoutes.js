@@ -2,6 +2,7 @@ const router = require("express").Router();
 const withAuth = require("../../utils/auth");
 const { Video } = require("../../models");
 
+//GET all video request
 router.get("/", withAuth, async (req, res) => {
   try {
     const newVideo = await Video.findAll(
@@ -12,6 +13,5 @@ router.get("/", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 module.exports = router;
