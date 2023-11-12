@@ -657,7 +657,6 @@ svg text {
 .musiclist,
 .booklist {
   width: 600px;
-  height: 100vh;
   margin-left: 40px;
   display: flex;
   align-items: center;
