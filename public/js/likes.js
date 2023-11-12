@@ -25,7 +25,7 @@ likeSongIcons.forEach((icon) => {
   icon.addEventListener("click", () => likeSongHandler(icon.dataset.songId));
 });
 
-//logic to handle like song with event listener and fetch request
+//logic to handle delete song with event listener and fetch request
 const deleteSongHandler = async (songId) => {
   try {
     const res = await fetch(`/api/likes/songlike/${songId}`, {
