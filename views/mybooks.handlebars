@@ -1,0 +1,26 @@
+<video autoplay loop muted id="background-video">
+  <source src="/assets/video/branchShadowVideo.mp4" type="video/mp4" />
+</video>
+<section class="login-nav-bar">
+  <a href="/profile" class="login-nav-item-1"><i
+      class="fa-solid fa-user fa-lg"
+    ></i>
+  </a>
+  <div class="login-nav-item-2" id="logout"><i
+      class="fa-solid fa-right-from-bracket fa-lg"
+    ></i></div>
+</section>
+<span class="favoriteSongs"><i class="fa-solid fa-book fa-sm"></i>
+  My favorite books
+  <i class="fa-solid fa-book fa-sm"></i></span>
+<div class="musiclist">
+  {{#each likedBooks.books}}
+    <div class="song">
+      <i class="fa-solid fa-trash fa-lg deleteLikeSong" data-song-id={{id}}></i>
+      <audio controls>
+        <source src="{{source}}" type="audio/mp3" />
+      </audio>
+      <i class="far fa-waveform"></i>{{name}}
+    </div>
+  {{/each}}
+</div>

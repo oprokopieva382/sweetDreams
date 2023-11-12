@@ -9,6 +9,7 @@ const {
   SongLike,
   VideoLike,
 } = require("../models");
+const BookLike = require("../models/BookLike");
 
 //Homepage render(project entry)
 router.get("/", async (req, res) => {
@@ -166,6 +167,22 @@ router.get("/mysongs", withAuth, async (req, res) => {
     res.render("mysongs", { likedSongs: user });
   } catch (error) {
     console.error("Error occurred while fetching liked songs", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+//My books page render with data display(navbar)
+router.get("/mybooks", withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      include: { model: Book, through: BookLike },
+      attributes: { exclude: ["password"] },
+    });
+
+    const user = userData.get({ plain: true });
+    // console.log(user);
+    res.render("mybooks", { likedBooks: user });
+  } catch (error) {
+    console.error("Error occurred while fetching liked books", error);
     res.status(500).json({ message: "Internal server error" });
   }
 });
