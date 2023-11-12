@@ -1,13 +1,29 @@
-const favIcon = document.querySelectorAll(".fav-icon");
+const likeSongIcons = document.querySelectorAll(".likemusic");
 
+const likeSongHandler = async (songId) => {
+  console.log("like")
+  try {
+    // Send a request to the server to like the song
+    const response = await fetch(`/api/likes/songs/${songId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
+    if (response.ok) {
+      console.log("Song liked");
+    } else {
+      console.error("Failed to like the song");
+    }
+  } catch (error) {
+    console.error("Error occurred while liking the song", error);
+  }
+};
 
-for (i of favIcon){
-  i.addEventListener("click", function (event) {
-  like(event.target.dataset.id);
-  
-})
-}
+likeSongIcons.forEach((icon) => {
+  icon.addEventListener("click", () => likeSongHandler(icon.dataset.songId));
+});
 
 // create Async function Await > method=post>body>headers
 const like = async (id) => {

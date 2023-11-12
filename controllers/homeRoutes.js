@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-const { User, Note, Video, Like } = require("../models");
+const { User, Note, Video, Song, Like } = require("../models");
+
 
 router.get("/", async (req, res) => {
   try {
@@ -76,10 +77,15 @@ router.get("/boringbooks", withAuth, (req, res) => {
   }
 });
 
-router.get("/yogamusic", withAuth, (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+router.get("/yogamusic", withAuth, async (req, res) => {
   try {
-    res.render("yogamusic");
+    const allSongs = await Song.findAll();
+
+    const data = allSongs.map((song) => song.get({ plain: true }));
+
+    res.render("yogamusic", {
+      allSongs: data,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -120,6 +126,24 @@ router.get("/mynotes", withAuth, async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+
+router.get("/mysongs", withAuth, async (req, res) => {
+  try {
+    const likedSongs = await Like.findAll({
+      where: { user_id: req.session.user_id },
+      include: Song,
+    });
+    console.log(likedSongs);
+    const data = likedSongs.map((song) => song.get({ plain: true }));
+    
+    res.render("mysongs", { likedSongs: data });
+
+    } catch (error) {
+    console.error("Error occurred while fetching liked songs", error);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 
