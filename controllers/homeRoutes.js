@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-const { User, Note, Video, Song, Like } = require("../models");
+const { User, Note, Video, Song, Like, SongLike, VideoLike } = require("../models");
 
 
 router.get("/", async (req, res) => {
@@ -95,14 +95,37 @@ router.get("/profile", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
-      // include: { model: Video, through: Like},
+      include: [{ model: Video, through: VideoLike},{model: Song, through: SongLike}],
       attributes: { exclude: ["password"] },
     });
 
     const user = userData.get({ plain: true });
+
 console.log(user);
+
     res.render("profile", {
       ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/myvideo", withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      include: { model: Video, through: VideoLike},
+      attributes: { exclude: ["password"] },
+    });
+
+    const user = userData.get({ plain: true });
+
+console.log(user);
+
+    res.render("myvideos", {
+      user,
       logged_in: true,
     });
   } catch (err) {
@@ -132,14 +155,16 @@ router.get("/mynotes", withAuth, async (req, res) => {
 
 router.get("/mysongs", withAuth, async (req, res) => {
   try {
-    const likedSongs = await Like.findAll({
-      where: { user_id: req.session.user_id },
-      include: Song,
+    const userData = await User.findByPk(req.session.user_id, {
+      include: { model: Song, through: SongLike},
+      attributes: { exclude: ["password"] },
     });
-    console.log(likedSongs);
-    const data = likedSongs.map((song) => song.get({ plain: true }));
+
+    const user = userData.get({ plain: true });
+
+console.log(user);
     
-    res.render("mysongs", { likedSongs: data });
+    res.render("mysongs", { likedSongs: user });
 
     } catch (error) {
     console.error("Error occurred while fetching liked songs", error);

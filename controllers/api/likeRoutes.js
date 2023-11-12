@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const { Like } = require("../../models");
+const { SongLike, VideoLike } = require("../../models");
 
-router.get("/", async (req, res) => {
+router.get("/videolikes", async (req, res) => {
   try {
-    const likeData = await Like.findAll({
+    const likeData = await VideoLike.findAll({
       // where: {
       //   user_id: req.session.user_id,
       // },
@@ -20,9 +20,9 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/videolike", async (req, res) => {
   try {
-    const likeData = await Like.create({
+    const likeData = await VideoLike.create({
       user_id: req.session.user_id,
       video_id: req.body.video_id,
     });
@@ -32,17 +32,23 @@ router.post("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.post("/songlike", async (req, res) => {
+  try {
+    const likeData = await SongLike.create({
+      user_id: req.session.user_id,
+      song_id: req.body.song_id,
+    });
+    res.status(200).json(likeData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // Get liked songs for a specific user
-router.get("/songs/:songId", async (req, res) => {
+router.get("/songs", async (req, res) => {
   try {
-    const likeData = await Like.findAll({
-      where: {
-        user_id: req.session.user_id,
-        song_id: req.params.songId,
-      },
-      include: Song,
-    });
+    const likeData = await SongLike.findAll();
 
     if (!likeData) {
       res.status(404).json({ message: "No liked songs found for this user!" });
@@ -56,29 +62,29 @@ router.get("/songs/:songId", async (req, res) => {
 });
 
 // POST Like a song
-router.post("/songs/:songId", async (req, res) => {
-  try {
-    const existingLike = await Like.findOne({
-      where: {
-        song_id: req.params.songId,
-        user_id: req.session.user_id,
-      },
-    });
+// router.post("/songs/:songId", async (req, res) => {
+//   try {
+//     const existingLike = await Like.findOne({
+//       where: {
+//         song_id: req.params.songId,
+//         user_id: req.session.user_id,
+//       },
+//     });
 
-    if (existingLike) {
-      res.status(400).json({ message: "Song is already liked by the user." });
-      return;
-    }
+//     if (existingLike) {
+//       res.status(400).json({ message: "Song is already liked by the user." });
+//       return;
+//     }
 
-    const likeData = await Like.create({
-      song_id: req.params.songId,
-      user_id: req.session.user_id,
-    });
+//     const likeData = await Like.create({
+//       song_id: req.params.songId,
+//       user_id: req.session.user_id,
+//     });
   
-    res.status(200).json(likeData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.status(200).json(likeData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;
