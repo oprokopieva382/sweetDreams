@@ -1,4 +1,5 @@
 const likeSongIcons = document.querySelectorAll(".likemusic");
+const deleteSongIcons = document.querySelectorAll(".deleteLikeSong");
 const favIcon = document.querySelectorAll(".fav-icon");
 
 //logic to handle like song with event listener and fetch request
@@ -22,6 +23,28 @@ const likeSongHandler = async (songId) => {
 
 likeSongIcons.forEach((icon) => {
   icon.addEventListener("click", () => likeSongHandler(icon.dataset.songId));
+});
+
+//logic to handle like song with event listener and fetch request
+const deleteSongHandler = async (songId) => {
+  try {
+    const res = await fetch(`/api/likes/songlike/${songId}`, {
+      method: "DELETE",
+    });
+
+    if (res.ok) {
+      console.log("Song deleted");
+      document.location.reload("/mysongs");
+    } else {
+      console.error("Failed to delete the song");
+    }
+  } catch (error) {
+    console.error("Error occurred while deleting the song", error);
+  }
+};
+
+deleteSongIcons.forEach((icon) => {
+  icon.addEventListener("click", () => deleteSongHandler(icon.dataset.songId));
 });
 
 //logic to handle like video with event listener and fetch request

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { SongLike, VideoLike } = require("../../models");
+const { SongLike, VideoLike, Song } = require("../../models");
 
 //GET all liked video request
 router.get("/videolikes", async (req, res) => {
@@ -49,7 +49,7 @@ router.post("/songlike", async (req, res) => {
   }
 });
 
-// GET all liked songs 
+// GET all liked songs
 router.get("/songs", async (req, res) => {
   try {
     const likeData = await SongLike.findAll();
@@ -60,6 +60,27 @@ router.get("/songs", async (req, res) => {
     }
 
     res.status(200).json(likeData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//DELETE liked song request by id
+router.delete("/songlike/:id", async (req, res) => {
+  try {
+    const songData = await SongLike.destroy({
+      where: {
+        song_id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!songData) {
+      res.status(404).json({ message: "No song found with this id!" });
+      return;
+    }
+
+    res.status(200).json(songData);
   } catch (err) {
     res.status(500).json(err);
   }
