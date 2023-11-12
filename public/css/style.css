@@ -1008,6 +1008,14 @@ textarea {
   }
 }
 
+@media screen and (max-width: 800px) {
+  svg text {
+    font-size: 60px;
+  }
+
+  @media screen and (max-width: 700px) {
+  }
+
 @media screen and (max-width: 600px) {
   h1 {
     text-align: center;
@@ -1043,6 +1051,9 @@ textarea {
     72.5% {
       top: -6.375rem;
     }
+  }
+  svg text {
+    font-size: 70px;
   }
 }
 
