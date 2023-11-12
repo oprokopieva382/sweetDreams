@@ -1017,6 +1017,10 @@ textarea {
   }
 
 @media screen and (max-width: 600px) {
+  .modal-title {
+    font-size: 25px;
+    padding-top: 50px
+  }
   h1 {
     text-align: center;
     text-transform: uppercase;
@@ -1074,7 +1078,9 @@ textarea {
 }
 
 @media screen and (max-width: 330px) {
-
+  .modal-title {
+    font-size: 20px;
+  }
   svg {
     width: 330px;
   }
