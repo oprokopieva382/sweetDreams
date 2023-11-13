@@ -1016,6 +1016,9 @@ textarea {
 }
 
 @media  screen and (max-width: 1000px) {
+  .musicContainer {
+    display: none;
+  }
   .favoriteBooks i {
     font-size: 20px;
   }
