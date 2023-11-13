@@ -1,6 +1,6 @@
 const likeSongIcons = document.querySelectorAll(".likemusic");
 const deleteSongIcons = document.querySelectorAll(".deleteLikeSong");
-const deleteVideoIcons = document.querySelectorAll(".deleteLikeSong");
+const deleteVideoIcons = document.querySelectorAll(".deleteLikeVideo");
 const LikeVideoIcons = document.querySelectorAll(".likeVideo");
 const favIcon = document.querySelectorAll(".fav-icon");
 const likeBook = document.querySelectorAll(".bookLikeIcon")

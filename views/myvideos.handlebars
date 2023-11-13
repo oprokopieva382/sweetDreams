@@ -13,7 +13,7 @@
 {{#if user.videos}}
   <div class="video-layout">
     <div >
-      {{#each user.videos}}
+      {{#each user.videos as |video|}}
         <div class="song">
           {{!-- <div>
           
@@ -23,12 +23,12 @@
             ></i>
         
         </div> --}}
-          <div>{{title}}</div>
-          <i class="fa-solid fa-trash fa-lg deleteLikeSong" data-song-id={{id}}></i>
+          <div>{{video.title}}</div>
+          <i class="fa-solid fa-trash fa-lg deleteLikeVideo" data-video-id={{video.id}}></i>
           <iframe
             width="640"
             height="360"
-            src={{video_url}}
+            src={{video.video_url}}
             title="10-Minute Meditation For Sleep"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
