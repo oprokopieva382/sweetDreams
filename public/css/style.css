@@ -1016,6 +1016,9 @@ textarea {
 }
 
 @media  screen and (max-width: 1000px) {
+  .favoriteBooks i {
+    font-size: 20px;
+  }
   .container {
     display: flex;
     flex-direction: column;
@@ -1023,6 +1026,13 @@ textarea {
 }
 
 @media screen and (max-width: 800px) {
+  .booklist .song {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .favoriteBooks i {
+    font-size: 15px;
+  }
   svg text {
     font-size: 60px;
   }
@@ -1173,6 +1183,10 @@ textarea {
 .note-action-icons {
   display: flex;
   justify-content: space-around;
+}
+
+.space {
+  width: 100%;
 }
 
 /* mysongs page style */
