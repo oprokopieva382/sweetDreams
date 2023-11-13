@@ -23,14 +23,16 @@ const videoData = [
   {
     video_url: "https://www.youtube.com/embed/Tr3Uw1UmTUk",
     title: "Your Best Sleep",
-    author: "john doe",
+    author: "GM",
     run_time: 20
   },
-  // {
-  //   video_url: "videourl.com",
-  //   title: "calming music",
-  //   author: "john doe",
-  // },
+  {
+    video_url: "https://www.youtube.com/embed/ftmY7W3HWe4?si=1uwaxOZj7fQHN9bo",
+    title: "Positive Sleep Guided Meditation",
+    author: "GM",
+    run_time: 20
+  },
+ 
 ];
 const seedComments = () => Video.bulkCreate(videoData);
 module.exports = seedComments;
