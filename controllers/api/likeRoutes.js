@@ -38,13 +38,27 @@ router.post("/videolike", async (req, res) => {
 //CREATE liked song request
 router.post("/songlike", async (req, res) => {
   try {
+    // Check if the record already exists
+    const existingLike = await SongLike.findOne({
+      where: {
+        user_id: req.session.user_id,
+        song_id: req.body.song_id,
+      },
+    });
+
+    if (existingLike) {
+      // Handle case where the user is trying to like the same song again
+      return res
+        .status(400)
+        .json({ message: "Song is already liked by the user" });
+    }
     const likeData = await SongLike.create({
       user_id: req.session.user_id,
       song_id: req.body.song_id,
     });
     res.status(200).json(likeData);
   } catch (err) {
-    console.log(err);c
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -88,6 +102,21 @@ router.delete("/songlike/:id", async (req, res) => {
 //CREATE liked book request
 router.post("/booklike", async (req, res) => {
   try {
+    // Check if the record already exists
+    const existingLike = await BookLike.findOne({
+      where: {
+        user_id: req.session.user_id,
+        book_id: req.body.book_id,
+      },
+    });
+
+    if (existingLike) {
+      // Handle case where the user is trying to like the same book again
+      return res
+        .status(400)
+        .json({ message: "Book is already liked by the user" });
+    }
+
     const likeData = await BookLike.create({
       user_id: req.session.user_id,
       book_id: req.body.book_id,

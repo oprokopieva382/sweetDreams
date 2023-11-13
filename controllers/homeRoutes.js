@@ -171,6 +171,7 @@ router.get("/mysongs", withAuth, async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
 //My books page render with data display(navbar)
 router.get("/mybooks", withAuth, async (req, res) => {
   try {
@@ -181,9 +182,9 @@ router.get("/mybooks", withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
     // console.log(user);
-    res.render("mybooks", { 
-      user,
-      logged_in: true, });
+    res.render("mybooks", {
+      likedBooks: user
+    });
   } catch (error) {
     console.error("Error occurred while fetching liked books", error);
     res.status(500).json({ message: "Internal server error" });
