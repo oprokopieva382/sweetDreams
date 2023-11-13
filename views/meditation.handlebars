@@ -15,15 +15,7 @@
   <div class="video-layout">
     <div class="video-row">
       <div class="song">
-        <div>
-          
-            <i
-              data-id={{video.id}}
-              class="fav-icon fa-solid fa-heart fa-lg"
-            ></i>
-        
-        </div>
-        <div>{{video.title}}</div>
+        <h4 class="video-title">{{video.title}}</h4>
         <iframe
           width="640"
           height="360"
@@ -33,6 +25,14 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe>
+        <div>
+          
+            <i
+              data-id={{video.id}}
+              class="fav-icon fa-solid fa-heart fa-lg"
+            ></i>
+        
+        </div>
 
       </div>
     </div>
