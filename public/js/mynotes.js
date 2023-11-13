@@ -15,9 +15,9 @@ const showNoteModalForm = () => {
   noteVisibilityWithModal.style.display = "none";
   modal.style.display = "block";
 };
-newNoteBtn.addEventListener("click", showNoteModalForm);
+newNoteBtn?.addEventListener("click", showNoteModalForm);
 
-modal.addEventListener("click", (event) => {
+modal?.addEventListener("click", (event) => {
   if (event.target === modal) {
     modal.style.display = "none";
     document.location.reload("/mynotes");
@@ -92,7 +92,7 @@ const showNoteModalFormToUpdate = () => {
   modalUpdate.style.display = "block";
 };
 
-modalUpdate.addEventListener("click", (event) => {
+modalUpdate?.addEventListener("click", (event) => {
   if (event.target === modalUpdate) {
     modalUpdate.style.display = "none";
     document.location.reload("/mynotes");
@@ -145,16 +145,16 @@ const handleEditNote = async (e) => {
 
     showNoteModalFormToUpdate();
 
-    noteUpdateForm.addEventListener("submit", async (e) => {
+    noteUpdateForm?.addEventListener("submit", async (e) => {
       e.preventDefault();
       await updateNoteInModal(id, e);
     });
   }
 };
 
-deleteNote.addEventListener("click", deleteNoteHandler);
+deleteNote?.addEventListener("click", deleteNoteHandler);
 
-noteForm.addEventListener("submit", addNewNoteHandler);
+noteForm?.addEventListener("submit", addNewNoteHandler);
 
 updateNote.forEach((updateIcon) => {
   updateIcon.addEventListener("click", handleEditNote);
