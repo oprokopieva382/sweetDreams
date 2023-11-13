@@ -1,5 +1,7 @@
 const likeSongIcons = document.querySelectorAll(".likemusic");
 const deleteSongIcons = document.querySelectorAll(".deleteLikeSong");
+const deleteVideoIcons = document.querySelectorAll(".deleteLikeSong");
+const LikeVideoIcons = document.querySelectorAll(".likeVideo");
 const favIcon = document.querySelectorAll(".fav-icon");
 const likeBook = document.querySelectorAll(".bookLikeIcon")
 
@@ -67,7 +69,7 @@ const likeVideoHandler = async (videoId) => {
   }
 };
 
-likeSongIcons.forEach((icon) => {
+LikeVideoIcons.forEach((icon) => {
   icon.addEventListener("click", () => likeVideoHandler(icon.dataset.videoId));
 });
 
@@ -105,7 +107,7 @@ const deleteVideoHandler = async (videoId) => {
   }
 };
 
-deleteSongIcons.forEach((icon) => {
+deleteVideoIcons.forEach((icon) => {
   icon.addEventListener("click", () => deleteVideoHandler(icon.dataset.videoId));
 });
 
