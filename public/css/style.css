@@ -331,21 +331,27 @@ body {
   color: var(--fifteen);
 }
 
+.shadow {
+  overflow: hidden;
+  /* display: none; */
+}
 /* cursor follow */
 #Wrap {
   height: 100vh;
 }
-
+/*  */
 #Wrap .FollowBox {
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
-  width: 200px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
 }
 
 #Wrap .FollowBox:nth-child(1) {
   z-index: 4;
+  
 }
 
 #Wrap .FollowBox:nth-child(2) {
@@ -502,7 +508,9 @@ svg text {
 }
 
 .nav ul {
+  padding-left: 20px;
   list-style: none;
+  padding-right: 20px;
 }
 
 .nav ul li {
@@ -812,6 +820,9 @@ audio::-webkit-media-controls-time-remaining-display {
 
 /* Style the modal content */
 .modal-content {
+  /* scroll issue */
+  overflow-y: auto;
+  height: 600px;
   background: #fff;
   border: 1px solid #ccc;
   width: 70%;
@@ -995,13 +1006,74 @@ textarea {
   }
 }
 
+@media screen and (max-width: 1500px) {
+  .sidebar {
+    width: fit-content;
+  }
+  .container {
+    width: fit-content;
+  }
+}
+
+@media  screen and (max-width: 1000px) {
+  .musicContainer {
+    display: none;
+  }
+  .favoriteBooks i {
+    font-size: 20px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .booklist .song {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .favoriteBooks i {
+    font-size: 15px;
+  }
+  svg text {
+    font-size: 60px;
+  }
+
 @media screen and (max-width: 600px) {
+  .video-layout {
+    width: fit-content;
+  }
+  .modal-title {
+    font-size: 25px;
+    padding-top: 50px
+  }
   h1 {
     text-align: center;
     text-transform: uppercase;
     color: #f1faee;
     font-size: 2.125rem;
   }
+}
+
+@media screen and (max-width: 425px) {
+  .recommendation {
+    width: fit-content;
+    padding-left: 97px;
+  }
+  svg {
+    width:auto;
+    padding-left: 97px;
+    /* padding-right: 0px; */
+    /* text-align: center; */
+  }
+  svg text {
+    font-size: 90px;
+  }
+  .sidebar {
+    height: -webkit-fill-available;
+  }
+}
 
   .roller {
     height: 2.6rem;
@@ -1030,6 +1102,18 @@ textarea {
     72.5% {
       top: -6.375rem;
     }
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .modal-title {
+    font-size: 20px;
+  }
+  svg {
+    width: 330px;
+  }
+  svg text {
+    font-size: 90px;
   }
 }
 
@@ -1102,6 +1186,10 @@ textarea {
 .note-action-icons {
   display: flex;
   justify-content: space-around;
+}
+
+.space {
+  width: 100%;
 }
 
 /* mysongs page style */
