@@ -769,7 +769,7 @@ audio::-webkit-media-controls-time-remaining-display {
   display: flex;
   justify-content: end;
   padding: 10px;
-  position: sticky;
+  /* position: sticky; */
 }
 
 .login-nav-item-1,
