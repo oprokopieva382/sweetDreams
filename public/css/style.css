@@ -544,14 +544,18 @@ svg text {
   margin: 50px auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 40px;
 }
 
 .video-row {
   display: flex;
   gap: 5%;
-  justify-content: space-between;
+  justify-content: center;
+}
+.video-title{
+line-height: 1.25;
+margin-right: 15px;
 }
 
 .video-item {
@@ -1101,7 +1105,7 @@ textarea {
 }
 
 /* mysongs page style */
-.favoriteSongs, .favoriteBooks {
+.favoriteSongs, .favoriteBooks, .favoriteVideos {
   font-size: 3em;
   position: absolute;
   left: 50%;
@@ -1113,7 +1117,7 @@ textarea {
   transition: background-size 0.7s, background-position 0.5s ease-in-out;
 }
 
-.favoriteSongs:hover, .favoriteBooks:hover {
+.favoriteSongs:hover, .favoriteBooks:hover, .favoriteVideos:hover {
   background-size: 100% 100%;
   background-position: 0% 100%;
   padding: 0px 15px;
