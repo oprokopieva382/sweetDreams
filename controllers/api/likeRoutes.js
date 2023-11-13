@@ -47,7 +47,7 @@ router.post("/songlike", async (req, res) => {
     });
 
     if (existingLike) {
-      // Handle case where the user is trying to like the same book again
+      // Handle case where the user is trying to like the same song again
       return res
         .status(400)
         .json({ message: "Song is already liked by the user" });
