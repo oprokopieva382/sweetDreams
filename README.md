@@ -14,44 +14,44 @@ Struggling to get a good night's sleep? We recommend to try a Sweet Dreams app. 
 ## Screenshots
 
     Welcome to the Sweet Dreams Homepage!
-![HomePage](public\assets\screenshots\SD-homepage.png)
+![HomePage](public/assets/screenshots/SD-homepage.png)
 
     How about we log in ---
-![Login](public\assets\screenshots\SD-login.png)
+![Login](public/assets/screenshots/SD-login.png)
 
     Which page to choose?
 
     Some Relaxing Music ---
-![Choosing](public\assets\screenshots\SD-yoga-music.png)
-![YogaMusic](public\assets\screenshots\SD-music.png)
+![Choosing](public/assets/screenshots/SD-yoga-music.png)
+![YogaMusic](public/assets/screenshots/SD-music.png)
 
     Meditation Videos --- 
-![Meditation](public\assets\screenshots\SD-meditation-guide.png)
+![Meditation](public/assets/screenshots/SD-meditation-guide.png)
 
     Boring Books ---
-![BoringBooks](public\assets\screenshots\SD-boring-books.png)
+![BoringBooks](public/assets/screenshots/SD-boring-books.png)
 
     Lets like this one!
-![Liked](public\assets\screenshots\SD-liked.png)
-![LikedBook](public\assets\screenshots\SD-liked-book.png)
+![Liked](public/assets/screenshots/SD-liked.png)
+![LikedBook](public/assets/screenshots/SD-liked-book.png)
 
     It works the same with all of them!
-![LikedSong](public\assets\screenshots\SD-liked-song.png)
-![LikedVideo](public\assets\screenshots\SD-liked-video.png)
+![LikedSong](public/assets/screenshots/SD-liked-song.png)
+![LikedVideo](public/assets/screenshots/SD-liked-video.png)
 
     How about a little note --- 
-![NewNote](public\assets\screenshots\SD-new-note.png)
-![NotePad](public\assets\screenshots\SD-notepad.png)
+![NewNote](public/assets/screenshots/SD-new-note.png)
+![NotePad](public/assets/screenshots/SD-notepad.png)
 
     Would you like to return to the Profile page? 
     Or how about logout?
-![ProfileLogout](public\assets\screenshots\SD-profile-logout.png)
+![ProfileLogout](public/assets/screenshots/SD-profile-logout.png)
 
     For a more in-depth view of the page --- ⬇️
 
 ## Demo
 
-[![Watch the Video](public\assets\screenshots\thumbnail.png)](https://vimeo.com/884429182?share%253D)
+[![Watch the Video](public/assets/screenshots/thumbnail.png)](https://vimeo.com/884429182?share%253D)
 
 [Deployed Website](https://sweetdreamsproject-8e54b05db96b.herokuapp.com/)
 
