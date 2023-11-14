@@ -14,13 +14,13 @@
 {{#if user.videos}}
   <div class="video-layout">
     <div >
-      {{#each user.videos as |video|}}
+      {{#each user.videos}}
         <div class="song">
           <h4 class="video-title">{{title}}</h4>
           <iframe
             width="640"
             height="360"
-            src={{video.video_url}}
+            src={{video_url}}
             title="10-Minute Meditation For Sleep"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
