@@ -13,8 +13,11 @@ Struggling to get a good night's sleep? We recommend to try a Sweet Dreams app. 
 
 ## Screenshots
 
+    Welcome to the Sweet Dreams Homepage!
+![HomePage](public\assets\screenshots\SD-homepage.png)
 
-
+    How about we log in ---
+![Login]()
 
 ## Demo
 
@@ -29,14 +32,17 @@ To contribute, please follow these steps
 
 1. Fork the Project
 2. Create your Feature Branch 
+        
+        git checkout -b feature/YourFeature
 
-    git checkout -b feature/YourFeature
 3. Commit your Changes 
 
-    git commit -m 'Added a feature'
+        git commit -m 'Added a feature'
+
 4. Push to the Branch 
     
-    git push origin feature/YourFeature
+        git push origin feature/YourFeature
+
 5. Open a Pull Request
 
 ## Acknowledgements
