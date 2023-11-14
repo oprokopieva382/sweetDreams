@@ -89,28 +89,6 @@ const like = async (id) => {
   console.log(response);
 };
 
-//logic to handle delete video with event listener and fetch request
-const deleteVideoHandler = async (videoId) => {
-  try {
-    const res = await fetch(`/api/likes/videolike/${videoId}`, {
-      method: "DELETE",
-    });
-
-    if (res.ok) {
-      console.log("Video deleted");
-      document.location.reload("/myvideos");
-    } else {
-      console.error("Failed to delete the video");
-    }
-  } catch (error) {
-    console.error("Error occurred while deleting the video", error);
-  }
-};
-
-deleteVideoIcons.forEach((icon) => {
-  icon.addEventListener("click", () => deleteVideoHandler(icon.dataset.videoId));
-});
-
 // logic to handle like book with event listener and fetch request
 const bookLikeHandler = async (bookId) => {
   try {
