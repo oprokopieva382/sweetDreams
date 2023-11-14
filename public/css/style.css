@@ -666,8 +666,8 @@ svg text {
   margin-left: 40px;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   position: relative;
+  flex-direction: column;
   bottom: -50px;
   margin: auto;
   transition: all ease-in-out 0.8s;
