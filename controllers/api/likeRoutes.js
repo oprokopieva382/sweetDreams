@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const { SongLike, VideoLike, BookLike } = require("../../models");
-// const successLike = require("../../public/js/testFile");
 
 //GET all liked video request
 router.get("/videolikes", async (req, res) => {

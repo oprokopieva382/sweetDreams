@@ -132,6 +132,7 @@ deleteLikeBook.forEach((icon) => {
   icon.addEventListener("click", () => deleteBookHandler(icon.dataset.bookId));
 });
 
+// pop up window message logic
 const alertSuccess = document.querySelector(".alert-success-like");
 const alertDanger = document.querySelector(".alert-danger");
 
