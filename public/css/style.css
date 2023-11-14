@@ -1061,7 +1061,7 @@ textarea {
     .favoriteSongs,
     .favoriteVideos,
     .favoriteBooks {
-      font-size: 20px;
+      font-size: 20px !important;
     }
   }
 
@@ -1224,7 +1224,6 @@ textarea {
   .favoriteVideos,
   .favoriteBooks {
     font-size: 20px !important;
-    color: red;
   }
 }
 
