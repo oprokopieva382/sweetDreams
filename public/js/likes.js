@@ -1,6 +1,7 @@
 const likeSongIcons = document.querySelectorAll(".likemusic");
 const deleteSongIcons = document.querySelectorAll(".deleteLikeSong");
 const deleteLikeVideo = document.querySelectorAll(".deleteLikeVideo");
+const deleteLikeBook = document.querySelectorAll(".deleteLikeBook");
 const favIcon = document.querySelectorAll(".fav-icon");
 const likeBook = document.querySelectorAll(".bookLikeIcon");
 
@@ -68,7 +69,6 @@ const likeVideoHandler = async (id) => {
 
 //logic to handle delete video with event listener and fetch request
 const deleteVideoHandler = async (videoId) => {
-  console.log("in delete handler")
   try {
     const res = await fetch(`/api/likes/videolike/${videoId}`, {
       method: "DELETE",
@@ -109,6 +109,27 @@ const bookLikeHandler = async (bookId) => {
 
 likeBook.forEach((icon) => {
   icon.addEventListener("click", () => bookLikeHandler(icon.dataset.bookId));
+});
+
+//logic to handle delete book with event listener and fetch request
+const deleteBookHandler = async (bookId) => {
+  try {
+    const res = await fetch(`/api/likes/booklike/${bookId}`, {
+      method: "DELETE",
+    });
+
+    if (res.ok) {
+      document.location.reload("/mybooks");
+    } else {
+      console.error("Failed to delete the book");
+    }
+  } catch (error) {
+    console.error("Error occurred while deleting the book", error);
+  }
+};
+
+deleteLikeBook.forEach((icon) => {
+  icon.addEventListener("click", () => deleteBookHandler(icon.dataset.bookId));
 });
 
 const alertSuccess = document.querySelector(".alert-success-like");
