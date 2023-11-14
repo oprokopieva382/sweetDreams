@@ -486,10 +486,9 @@ svg text {
 /* nav bar style */
 .sidebar {
   display: flex;
-  position: absolute;
+  position: fixed;
   width: 8%;
   height: 100vh;
-  background: var(--seven);
   font-size: 10px;
 }
 
@@ -541,7 +540,7 @@ svg text {
 
 /* recommendation meditation page style */
 .video-layout {
-  max-width: 1000px;
+  max-width: 500px;
   margin: 50px auto;
   display: flex;
   flex-wrap: wrap;
@@ -1047,6 +1046,9 @@ textarea {
     margin-bottom: 8px;
   }
   
+  .video-layout {
+    width: auto;
+  }
 }
 
 /* list of notes display styling */
