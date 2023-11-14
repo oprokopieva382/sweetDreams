@@ -1,7 +1,8 @@
 const likeSongIcons = document.querySelectorAll(".likemusic");
 const deleteSongIcons = document.querySelectorAll(".deleteLikeSong");
+const deleteLikeVideo = document.querySelectorAll(".deleteLikeVideo");
 const favIcon = document.querySelectorAll(".fav-icon");
-const likeBook = document.querySelectorAll(".bookLikeIcon")
+const likeBook = document.querySelectorAll(".bookLikeIcon");
 
 //logic to handle like song with event listener and fetch request
 const likeSongHandler = async (songId) => {
@@ -14,9 +15,7 @@ const likeSongHandler = async (songId) => {
       },
     });
 
-    response.ok
-      ? console.log("Song liked")
-      : console.error("Failed to like the song");
+    response.ok ? successLike() : notSuccessLike();
   } catch (error) {
     console.error("Error occurred while liking the song", error);
   }
@@ -34,7 +33,6 @@ const deleteSongHandler = async (songId) => {
     });
 
     if (res.ok) {
-      console.log("Song deleted");
       document.location.reload("/mysongs");
     } else {
       console.error("Failed to delete the song");
@@ -51,20 +49,46 @@ deleteSongIcons.forEach((icon) => {
 //logic to handle like video with event listener and fetch request
 for (i of favIcon) {
   i.addEventListener("click", function (e) {
-    like(e.target.dataset.id);
+    likeVideoHandler(e.target.dataset.id);
   });
 }
 
-const like = async (id) => {
-  const response = await fetch("/api/likes/videolike", {
-    method: "POST",
-    body: JSON.stringify({ video_id: parseInt(id) }),
-    headers: { "Content-Type": "application/json" },
-  });
-
-  console.log(response);
+const likeVideoHandler = async (id) => {
+  try {
+    const response = await fetch("/api/likes/videolike", {
+      method: "POST",
+      body: JSON.stringify({ video_id: parseInt(id) }),
+      headers: { "Content-Type": "application/json" },
+    });
+    response.ok ? successLike() : notSuccessLike();
+  } catch (error) {
+    console.error("Error occurred while liking the video", error);
+  }
 };
 
+//logic to handle delete video with event listener and fetch request
+const deleteVideoHandler = async (videoId) => {
+  console.log("in delete handler")
+  try {
+    const res = await fetch(`/api/likes/videolike/${videoId}`, {
+      method: "DELETE",
+    });
+
+    if (res.ok) {
+      document.location.reload("/myvideos");
+    } else {
+      console.error("Failed to delete the video");
+    }
+  } catch (error) {
+    console.error("Error occurred while deleting the video", error);
+  }
+};
+
+deleteLikeVideo.forEach((icon) => {
+  icon.addEventListener("click", () =>
+    deleteVideoHandler(icon.dataset.videoId)
+  );
+});
 
 // logic to handle like book with event listener and fetch request
 const bookLikeHandler = async (bookId) => {
@@ -77,9 +101,7 @@ const bookLikeHandler = async (bookId) => {
       },
     });
 
-    response.ok
-      ? console.log("Book liked")
-      : console.error("Failed to like the book");
+    response.ok ? successLike() : notSuccessLike();
   } catch (error) {
     console.error("Error occurred while liking the book", error);
   }
@@ -89,4 +111,20 @@ likeBook.forEach((icon) => {
   icon.addEventListener("click", () => bookLikeHandler(icon.dataset.bookId));
 });
 
+const alertSuccess = document.querySelector(".alert-success-like");
+const alertDanger = document.querySelector(".alert-danger");
 
+const showAlert = (element) => {
+  element.style.display = "block";
+  setTimeout(() => {
+    element.style.display = "none";
+  }, 1000);
+};
+
+const successLike = () => {
+  showAlert(alertSuccess);
+};
+
+const notSuccessLike = () => {
+  showAlert(alertDanger);
+};

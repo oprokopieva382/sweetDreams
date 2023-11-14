@@ -42,10 +42,7 @@ router.get("/meditation", withAuth, async (req, res) => {
   try {
     //go get all the videos from db
     const videos = await Video.findAll({
-      // where: {
-      //   run_time: req.params.type
-      // },
-      order: [["run_time", "ASC"]],
+       order: [["run_time", "ASC"]],
     });
     //get the video objects out of the array
     const allVideos = videos.map((video) => video.get({ plain: true }));
@@ -124,8 +121,6 @@ router.get("/myvideo", withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    console.log(user);
-
     res.render("myvideos", {
       user,
       logged_in: true,
@@ -164,7 +159,6 @@ router.get("/mysongs", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    // console.log(user);
     res.render("mysongs", { likedSongs: user });
   } catch (error) {
     console.error("Error occurred while fetching liked songs", error);
@@ -181,8 +175,7 @@ router.get("/mybooks", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    // console.log(user);
-    res.render("mybooks", {
+     res.render("mybooks", {
       likedBooks: user
     });
   } catch (error) {

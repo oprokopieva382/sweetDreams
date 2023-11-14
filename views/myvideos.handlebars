@@ -17,14 +17,6 @@
     <div >
       {{#each user.videos}}
         <div class="song">
-          {{!-- <div>
-          
-            <i
-              data-id={{id}}
-              class="fav-icon fa-solid fa-heart fa-lg"
-            ></i>
-        
-        </div> --}}
           <h4 class="video-title">{{title}}</h4>
           <iframe
             width="640"
@@ -36,7 +28,7 @@
             allowfullscreen
           ></iframe>
 
-          <i class="fa-solid fa-trash fa-lg deleteLikeSong" data-song-id={{id}}></i>
+          <i class="fa-solid fa-trash fa-lg deleteLikeVideo" data-video-id={{id}}></i>
         </div>
 
       {{/each}}

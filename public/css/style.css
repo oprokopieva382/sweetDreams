@@ -1220,13 +1220,16 @@ textarea {
   transition: 0.5s;
   max-width: 270px;
   padding: 0.7%;
+  position: relative;
 }
 .alert-success-like,
-.alert-success-login {
+.alert-success-login,
+.alert-success-signup {
   border: 1px solid rgba(36, 241, 6, 0.46);
   background-color: rgba(7, 149, 66, 0.12156862745098039);
   box-shadow: 0px 0px 2px #259c08;
   color: #0ad406;
+  position: relative;
   display: none;
 }
 
@@ -1238,10 +1241,14 @@ textarea {
   display: none;
 }
 .pop-up-container {
-  display: none;
-  justify-content: end;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-right: 2%;
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  justify-content: start;
+  align-items: left;
+  width: 100%;
+  z-index: 9999;
+  margin-left: 2%;
   padding: 2%;
 }

@@ -1,14 +1,11 @@
 const router = require("express").Router();
-const { SongLike, VideoLike, BookLike, Song } = require("../../models");
+const { SongLike, VideoLike, BookLike } = require("../../models");
+// const successLike = require("../../public/js/testFile");
 
 //GET all liked video request
 router.get("/videolikes", async (req, res) => {
   try {
-    const likeData = await VideoLike.findAll({
-      // where: {
-      //   user_id: req.session.user_id,
-      // },
-    });
+    const likeData = await VideoLike.findAll();
 
     if (!likeData) {
       res.status(404).json({ message: "No likes associated with this id!" });
@@ -28,9 +25,30 @@ router.post("/videolike", async (req, res) => {
       user_id: req.session.user_id,
       video_id: req.body.video_id,
     });
-    res.status(200).json(likeData);
+        res.status(200).json(likeData);
   } catch (err) {
     console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+//DELETE liked video request by id
+router.delete("/videolike/:id", async (req, res) => {
+  try {
+    const videoData = await VideoLike.destroy({
+      where: {
+        video_id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!videoData) {
+      res.status(404).json({ message: "No video found with this id!" });
+      return;
+    }
+
+    res.status(200).json(videoData);
+  } catch (err) {
     res.status(500).json(err);
   }
 });
@@ -52,6 +70,7 @@ router.post("/songlike", async (req, res) => {
         .status(400)
         .json({ message: "Song is already liked by the user" });
     }
+ 
     const likeData = await SongLike.create({
       user_id: req.session.user_id,
       song_id: req.body.song_id,
@@ -99,6 +118,7 @@ router.delete("/songlike/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 //CREATE liked book request
 router.post("/booklike", async (req, res) => {
   try {
