@@ -7,8 +7,9 @@
       class="fa-solid fa-right-from-bracket fa-lg"
     ></i></div>
 </section>
-
-<h1>My Saved Videos</h1>
+<span class="favoriteSongs"><i class="fa-solid fa-video fa-sm"></i>
+  My saved videos
+  <i class="fa-solid fa-video fa-sm"></i></span>
 
 {{#if user.videos}}
   <div class="video-layout">
@@ -42,7 +43,5 @@
   </div>
 
 {{else}}
-
-  <p>no videos saved</p>
 
 {{/if}}
