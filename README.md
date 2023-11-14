@@ -51,9 +51,9 @@ Struggling to get a good night's sleep? We recommend to try a Sweet Dreams app. 
 
 ## Demo
 
-Insert gif or link to demo
+[![Watch the Video](public\assets\screenshots\thumbnail.png)](https://vimeo.com/884429182?share%253D)
 
-[Deployed](https://sweetdreamsproject-8e54b05db96b.herokuapp.com/)
+[Deployed Website](https://sweetdreamsproject-8e54b05db96b.herokuapp.com/)
 
 [Repository](https://github.com/oprokopieva382/sweetDreams)
 
