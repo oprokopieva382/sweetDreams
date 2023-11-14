@@ -485,7 +485,8 @@ svg text {
 
 /* nav bar style */
 .sidebar {
-  position: fixed;
+  display: flex;
+  position: absolute;
   width: 8%;
   height: 100vh;
   background: var(--seven);
@@ -801,7 +802,7 @@ audio::-webkit-media-controls-time-remaining-display {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
   background: rgba(0, 0, 0, 0.7);
   z-index: 1;
 }
