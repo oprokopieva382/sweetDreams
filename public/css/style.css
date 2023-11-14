@@ -490,10 +490,10 @@ svg text {
 
 /* nav bar style */
 .sidebar {
-  display: flex;
   position: fixed;
   width: 8%;
   height: 100vh;
+  background: var(--seven);
   font-size: 10px;
 }
 
