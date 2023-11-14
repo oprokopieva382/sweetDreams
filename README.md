@@ -66,6 +66,7 @@ Insert gif or link to demo
 - Helpful links found on the WEB
 
 [![Basic Syntax](https://img.shields.io/badge/Basic-Syntax-blue?logo=markdown)](https://www.markdownguide.org/basic-syntax/)
+[![W3Schools](https://img.shields.io/badge/W3Schools-teal?)](https://www.w3schools.com/)
 
 ## License
 
