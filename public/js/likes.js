@@ -84,12 +84,6 @@ const deleteVideoHandler = async (videoId) => {
   }
 };
 
-deleteLikeVideo.forEach((icon) => {
-  icon.addEventListener("click", () =>
-    deleteVideoHandler(icon.dataset.videoId)
-  );
-});
-
 // logic to handle like book with event listener and fetch request
 const bookLikeHandler = async (bookId) => {
   try {
