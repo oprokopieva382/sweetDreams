@@ -23,7 +23,6 @@ router.get("/", async (req, res) => {
 
 //Login with redirect to profile page
 router.get("/login", (req, res) => {
-  // If the user is already logged in, redirect the request to another route
   try {
     if (req.session.logged_in) {
       res.redirect("profile");
@@ -38,18 +37,12 @@ router.get("/login", (req, res) => {
 
 //Meditation page render
 router.get("/meditation", withAuth, async (req, res) => {
-  // If the user is already logged in, redirect the request to another route
   try {
-    //go get all the videos from db
-    const videos = await Video.findAll({
-      // where: {
-      //   run_time: req.params.type
-      // },
-      order: [["run_time", "ASC"]],
+      const videos = await Video.findAll({
+       order: [["run_time", "ASC"]],
     });
-    //get the video objects out of the array
     const allVideos = videos.map((video) => video.get({ plain: true }));
-    //show the meditation page and give it all of the video data
+
     res.render("meditation", {
       allVideos,
     });
@@ -91,8 +84,7 @@ router.get("/yogamusic", withAuth, async (req, res) => {
 //Yoga music page render
 router.get("/profile", withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
+      const userData = await User.findByPk(req.session.user_id, {
       include: [
         { model: Video, through: VideoLike },
         { model: Song, through: SongLike },
@@ -101,8 +93,6 @@ router.get("/profile", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-
-    console.log(user);
 
     res.render("profile", {
       ...user,
@@ -116,15 +106,12 @@ router.get("/profile", withAuth, async (req, res) => {
 //My video page render with data display(navbar)
 router.get("/myvideo", withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       include: { model: Video, through: VideoLike },
       attributes: { exclude: ["password"] },
     });
 
     const user = userData.get({ plain: true });
-
-    console.log(user);
 
     res.render("myvideos", {
       user,
@@ -138,8 +125,7 @@ router.get("/myvideo", withAuth, async (req, res) => {
 //My notes page render with data display(navbar)
 router.get("/mynotes", withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
+      const userData = await User.findByPk(req.session.user_id, {
       include: Note,
       attributes: { exclude: ["password"] },
     });
@@ -164,13 +150,13 @@ router.get("/mysongs", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    // console.log(user);
     res.render("mysongs", { likedSongs: user });
   } catch (error) {
     console.error("Error occurred while fetching liked songs", error);
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
 //My books page render with data display(navbar)
 router.get("/mybooks", withAuth, async (req, res) => {
   try {
@@ -180,10 +166,9 @@ router.get("/mybooks", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    // console.log(user);
-    res.render("mybooks", { 
-      user,
-      logged_in: true, });
+     res.render("mybooks", {
+      likedBooks: user
+    });
   } catch (error) {
     console.error("Error occurred while fetching liked books", error);
     res.status(500).json({ message: "Internal server error" });

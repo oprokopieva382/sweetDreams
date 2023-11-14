@@ -7,25 +7,16 @@
       class="fa-solid fa-right-from-bracket fa-lg"
     ></i></div>
 </section>
-<span class="favoriteSongs"><i class="fa-solid fa-video fa-sm"></i>
-  My saved videos
-  <i class="fa-solid fa-video fa-sm"></i></span>
 
+<span class="favoriteVideos"><i class="fa-brands fa-youtube fa-sm"></i>
+  My favorite video
+  <i class="fa-brands fa-youtube fa-sm"></i></span>
 {{#if user.videos}}
   <div class="video-layout">
     <div >
       {{#each user.videos as |video|}}
         <div class="song">
-          {{!-- <div>
-          
-            <i
-              data-id={{id}}
-              class="fav-icon fa-solid fa-heart fa-lg"
-            ></i>
-        
-        </div> --}}
-          <div>{{video.title}}</div>
-          <i class="fa-solid fa-trash fa-lg deleteLikeVideo" data-video-id={{video.id}}></i>
+          <h4 class="video-title">{{title}}</h4>
           <iframe
             width="640"
             height="360"
@@ -36,6 +27,7 @@
             allowfullscreen
           ></iframe>
 
+          <i class="fa-solid fa-trash fa-lg deleteLikeVideo" data-video-id={{id}}></i>
         </div>
 
       {{/each}}

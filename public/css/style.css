@@ -331,17 +331,22 @@ body {
   color: var(--fifteen);
 }
 
+.shadow {
+  overflow: hidden;
+  /* display: none; */
+}
 /* cursor follow */
 #Wrap {
   height: 100vh;
 }
-
+/*  */
 #Wrap .FollowBox {
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
-  width: 200px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
 }
 
 #Wrap .FollowBox:nth-child(1) {
@@ -502,7 +507,9 @@ svg text {
 }
 
 .nav ul {
+  padding-left: 20px;
   list-style: none;
+  padding-right: 20px;
 }
 
 .nav ul li {
@@ -544,14 +551,18 @@ svg text {
   margin: 50px auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 40px;
 }
 
 .video-row {
   display: flex;
   gap: 5%;
-  justify-content: space-between;
+  justify-content: center;
+}
+.video-title {
+  line-height: 1.25;
+  margin-right: 15px;
 }
 
 .video-item {
@@ -769,7 +780,7 @@ audio::-webkit-media-controls-time-remaining-display {
   display: flex;
   justify-content: end;
   padding: 10px;
-  position: sticky;
+  /* position: sticky; */
 }
 
 .login-nav-item-1,
@@ -808,6 +819,9 @@ audio::-webkit-media-controls-time-remaining-display {
 
 /* Style the modal content */
 .modal-content {
+  /* scroll issue */
+  overflow-y: auto;
+  height: 600px;
   background: #fff;
   border: 1px solid #ccc;
   width: 70%;
@@ -991,12 +1005,73 @@ textarea {
   }
 }
 
-@media screen and (max-width: 600px) {
-  h1 {
-    text-align: center;
-    text-transform: uppercase;
-    color: #f1faee;
-    font-size: 2.125rem;
+@media screen and (max-width: 1500px) {
+  .sidebar {
+    width: fit-content;
+  }
+  .container {
+    width: fit-content;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .musicContainer {
+    display: none;
+  }
+  .favoriteBooks i {
+    font-size: 20px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .booklist .song {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .favoriteBooks i {
+    font-size: 15px;
+  }
+  svg text {
+    font-size: 60px;
+  }
+
+  @media screen and (max-width: 600px) {
+    .video-layout {
+      width: fit-content;
+    }
+    .modal-title {
+      font-size: 25px;
+      padding-top: 50px;
+    }
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+      color: #f1faee;
+      font-size: 2.125rem;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    .recommendation {
+      width: fit-content;
+      padding-left: 97px;
+    }
+    svg {
+      width: auto;
+      padding-left: 97px;
+      /* padding-right: 0px; */
+      /* text-align: center; */
+    }
+    svg text {
+      font-size: 90px;
+    }
+    .sidebar {
+      height: -webkit-fill-available;
+    }
   }
 
   .roller {
@@ -1048,6 +1123,18 @@ textarea {
   
   .video-layout {
     width: auto;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .modal-title {
+    font-size: 20px;
+  }
+  svg {
+    width: 330px;
+  }
+  svg text {
+    font-size: 90px;
   }
 }
 
@@ -1122,9 +1209,15 @@ textarea {
   justify-content: space-around;
 }
 
+.space {
+  width: 100%;
+}
+
 /* mysongs page style */
-.favoriteSongs, .favoriteBooks {
-  font-size: 30px;
+.favoriteSongs,
+.favoriteBooks,
+.favoriteVideos {
+font-size: 30px;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -1135,10 +1228,49 @@ textarea {
   transition: background-size 0.7s, background-position 0.5s ease-in-out;
 }
 
-.favoriteSongs:hover, .favoriteBooks:hover {
+.favoriteSongs:hover,
+.favoriteBooks:hover,
+.favoriteVideos:hover {
   background-size: 100% 100%;
   background-position: 0% 100%;
   padding: 0px 15px;
   color: var(--seventeen);
   transition: background-position 0.7s, background-size 0.5s ease-in-out;
+}
+/* message pup up style */
+.alert-simple {
+  transition: 0.5s;
+  max-width: 270px;
+  padding: 0.7%;
+  position: relative;
+}
+.alert-success-like,
+.alert-success-login,
+.alert-success-signup {
+  border: 1px solid rgba(36, 241, 6, 0.46);
+  background-color: rgba(7, 149, 66, 0.12156862745098039);
+  box-shadow: 0px 0px 2px #259c08;
+  color: #0ad406;
+  position: relative;
+  display: none;
+}
+
+.alert-danger {
+  border: 1px solid rgba(241, 6, 6, 0.81);
+  background-color: rgba(220, 17, 1, 0.16);
+  box-shadow: 0px 0px 2px #ff0303;
+  color: #ff0303;
+  display: none;
+}
+.pop-up-container {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  justify-content: start;
+  align-items: left;
+  width: 100%;
+  z-index: 9999;
+  margin-left: 2%;
+  padding: 2%;
 }

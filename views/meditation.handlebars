@@ -11,23 +11,21 @@
       class="fa-solid fa-right-from-bracket fa-lg"
     ></i></div>
 </section>
-
-<span class="favoriteSongs"><i class="fa-solid fa-video fa-sm"></i>
-  Meditation Videos
-  <i class="fa-solid fa-video fa-sm"></i></span>
+<div class="pop-up-container">
+  <div class="alert-simple alert-success-like">
+    <i class="start-icon far fa-check-circle"></i>
+    Added to your favorite list.
+  </div>
+  <div class="alert-simple alert-danger">
+    <i class="start-icon far fa-check-circle"></i>
+    Already added.
+  </div>
+</div>
 {{#each allVideos as |video|}}
   <div class="video-layout">
     <div class="video-row">
       <div class="song">
-        <div>
-          
-            <i
-              data-id={{video.id}}
-              class="fav-icon fa-solid fa-heart fa-lg likeVideo"
-            ></i>
-        
-        </div>
-        <div>{{video.title}}</div>
+        <h4 class="video-title">{{video.title}}</h4>
         <iframe
           width="640"
           height="360"
@@ -37,11 +35,10 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe>
-
+        <div>
+          <i data-id={{video.id}} class="fav-icon fa-solid fa-heart fa-lg"></i>
+        </div>
       </div>
     </div>
   </div>
 {{/each}}
-
-
-<script src="/js/likes.js"></script>
