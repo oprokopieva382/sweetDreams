@@ -19,31 +19,43 @@ Struggling to get a good night's sleep? We recommend to try a Sweet Dreams app. 
     How about we log in ---
 ![Login](public\assets\screenshots\SD-login.png)
 
+    Which page to choose?
+
+    Some Relaxing Music ---
+![Choosing](public\assets\screenshots\SD-yoga-music.png)
+![YogaMusic](public\assets\screenshots\SD-music.png)
+
+    Meditation Videos --- 
+![Meditation](public\assets\screenshots\SD-meditation-guide.png)
+
+    Boring Books ---
+![BoringBooks](public\assets\screenshots\SD-boring-books.png)
+
+    Lets like this one!
+![Liked](public\assets\screenshots\SD-liked.png)
+![LikedBook](public\assets\screenshots\SD-liked-book.png)
+
+    It works the same with all of them!
+![LikedSong](public\assets\screenshots\SD-liked-song.png)
+![LikedVideo](public\assets\screenshots\SD-liked-video.png)
+
+    How about a little note --- 
+![NewNote](public\assets\screenshots\SD-new-note.png)
+![NotePad](public\assets\screenshots\SD-notepad.png)
+
+    Would you like to return to the Profile page? 
+    Or how about logout?
+![ProfileLogout](public\assets\screenshots\SD-profile-logout.png)
+
+    For a more in-depth view of the page --- ⬇️
+
 ## Demo
 
 Insert gif or link to demo
 
+[Deployed](https://sweetdreamsproject-8e54b05db96b.herokuapp.com/)
 
-## Contributing
-
-Contributions are welcome, as well as suggestions.
-
-To contribute, please follow these steps
-
-1. Fork the Project
-2. Create your Feature Branch 
-        
-        git checkout -b feature/YourFeature
-
-3. Commit your Changes 
-
-        git commit -m 'Added a feature'
-
-4. Push to the Branch 
-    
-        git push origin feature/YourFeature
-
-5. Open a Pull Request
+[Repository](https://github.com/oprokopieva382/sweetDreams)
 
 ## Acknowledgements
 - Supportive links provided by Teacher's Assistant [Mary Elenius](https://github.com/404pandas)
