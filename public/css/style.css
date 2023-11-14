@@ -351,7 +351,6 @@ body {
 
 #Wrap .FollowBox:nth-child(1) {
   z-index: 4;
-  
 }
 
 #Wrap .FollowBox:nth-child(2) {
@@ -561,9 +560,9 @@ svg text {
   gap: 5%;
   justify-content: center;
 }
-.video-title{
-line-height: 1.25;
-margin-right: 15px;
+.video-title {
+  line-height: 1.25;
+  margin-right: 15px;
 }
 
 .video-item {
@@ -1015,7 +1014,7 @@ textarea {
   }
 }
 
-@media  screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
   .musicContainer {
     display: none;
   }
@@ -1040,40 +1039,40 @@ textarea {
     font-size: 60px;
   }
 
-@media screen and (max-width: 600px) {
-  .video-layout {
-    width: fit-content;
+  @media screen and (max-width: 600px) {
+    .video-layout {
+      width: fit-content;
+    }
+    .modal-title {
+      font-size: 25px;
+      padding-top: 50px;
+    }
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+      color: #f1faee;
+      font-size: 2.125rem;
+    }
   }
-  .modal-title {
-    font-size: 25px;
-    padding-top: 50px
-  }
-  h1 {
-    text-align: center;
-    text-transform: uppercase;
-    color: #f1faee;
-    font-size: 2.125rem;
-  }
-}
 
-@media screen and (max-width: 425px) {
-  .recommendation {
-    width: fit-content;
-    padding-left: 97px;
+  @media screen and (max-width: 425px) {
+    .recommendation {
+      width: fit-content;
+      padding-left: 97px;
+    }
+    svg {
+      width: auto;
+      padding-left: 97px;
+      /* padding-right: 0px; */
+      /* text-align: center; */
+    }
+    svg text {
+      font-size: 90px;
+    }
+    .sidebar {
+      height: -webkit-fill-available;
+    }
   }
-  svg {
-    width:auto;
-    padding-left: 97px;
-    /* padding-right: 0px; */
-    /* text-align: center; */
-  }
-  svg text {
-    font-size: 90px;
-  }
-  .sidebar {
-    height: -webkit-fill-available;
-  }
-}
 
   .roller {
     height: 2.6rem;
@@ -1193,7 +1192,9 @@ textarea {
 }
 
 /* mysongs page style */
-.favoriteSongs, .favoriteBooks, .favoriteVideos {
+.favoriteSongs,
+.favoriteBooks,
+.favoriteVideos {
   font-size: 3em;
   position: absolute;
   left: 50%;
@@ -1205,10 +1206,49 @@ textarea {
   transition: background-size 0.7s, background-position 0.5s ease-in-out;
 }
 
-.favoriteSongs:hover, .favoriteBooks:hover, .favoriteVideos:hover {
+.favoriteSongs:hover,
+.favoriteBooks:hover,
+.favoriteVideos:hover {
   background-size: 100% 100%;
   background-position: 0% 100%;
   padding: 0px 15px;
   color: var(--seventeen);
   transition: background-position 0.7s, background-size 0.5s ease-in-out;
+}
+/* message pup up style */
+.alert-simple {
+  transition: 0.5s;
+  max-width: 270px;
+  padding: 0.7%;
+  position: relative;
+}
+.alert-success-like,
+.alert-success-login,
+.alert-success-signup {
+  border: 1px solid rgba(36, 241, 6, 0.46);
+  background-color: rgba(7, 149, 66, 0.12156862745098039);
+  box-shadow: 0px 0px 2px #259c08;
+  color: #0ad406;
+  position: relative;
+  display: none;
+}
+
+.alert-danger {
+  border: 1px solid rgba(241, 6, 6, 0.81);
+  background-color: rgba(220, 17, 1, 0.16);
+  box-shadow: 0px 0px 2px #ff0303;
+  color: #ff0303;
+  display: none;
+}
+.pop-up-container {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  justify-content: start;
+  align-items: left;
+  width: 100%;
+  z-index: 9999;
+  margin-left: 2%;
+  padding: 2%;
 }

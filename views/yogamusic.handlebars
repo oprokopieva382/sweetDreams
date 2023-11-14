@@ -2,8 +2,13 @@
   <source src="/assets/video/branchShadowVideo.mp4" type="video/mp4" />
 </video>
 <section class="login-nav-bar">
-  <a href="/profile" class="login-nav-item-1"><i class="fa-solid fa-user fa-lg"></i> </a>
-  <div class="login-nav-item-2" id="logout"><i class="fa-solid fa-right-from-bracket fa-lg"></i></div>
+  <a href="/profile" class="login-nav-item-1"><i
+      class="fa-solid fa-user fa-lg"
+    ></i>
+  </a>
+  <div class="login-nav-item-2" id="logout"><i
+      class="fa-solid fa-right-from-bracket fa-lg"
+    ></i></div>
 </section>
 <div class="musicContainer">
   <div class="nameboxm">
@@ -21,21 +26,25 @@
     If you're here you not sleep yet, come in.
   </div>
 </div>
+<div class="pop-up-container">
+  <div class="alert-simple alert-success-like">
+    <i class="start-icon far fa-check-circle"></i>
+    Added to your favorite list.
+  </div>
+   <div class="alert-simple alert-danger">
+    <i class="start-icon far fa-check-circle"></i>
+    Already added.
+  </div>
+</div>
 <div class="musiclist">
   {{#each allSongs as |song|}}
-  <div class="song">
-    <i
-      class="fa-solid fa-heart fa-lg likemusic"
-      data-song-id={{song.id}}
-      ></i>
-    <audio controls>
-      <source
-        src="{{song.source}}"
-        type="audio/mp3"
-      />
-    </audio>
-    <i class="far fa-waveform"></i>{{song.name}}
-  </div>
+    <div class="song">
+      <i class="fa-solid fa-heart fa-lg likemusic" data-song-id={{song.id}}></i>
+      <audio controls>
+        <source src="{{song.source}}" type="audio/mp3" />
+      </audio>
+      <i class="far fa-waveform"></i>{{song.name}}
+    </div>
   {{/each}}
 </div>
 <link

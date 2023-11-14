@@ -17,12 +17,6 @@ Note.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-// User.hasMany(Video, {
-//   foreignKey: "user_id",
-//   through: Like,
-//   onDelete: "CASCADE",
-// });
-
 Video.belongsToMany(User, {
   foreignKey: "video_id",
   through: VideoLike,

@@ -11,6 +11,16 @@
       class="fa-solid fa-right-from-bracket fa-lg"
     ></i></div>
 </section>
+<div class="pop-up-container">
+  <div class="alert-simple alert-success-like">
+    <i class="start-icon far fa-check-circle"></i>
+    Added to your favorite list.
+  </div>
+  <div class="alert-simple alert-danger">
+    <i class="start-icon far fa-check-circle"></i>
+    Already added.
+  </div>
+</div>
 {{#each allVideos as |video|}}
   <div class="video-layout">
     <div class="video-row">
@@ -26,18 +36,9 @@
           allowfullscreen
         ></iframe>
         <div>
-          
-            <i
-              data-id={{video.id}}
-              class="fav-icon fa-solid fa-heart fa-lg"
-            ></i>
-        
+          <i data-id={{video.id}} class="fav-icon fa-solid fa-heart fa-lg"></i>
         </div>
-
       </div>
     </div>
   </div>
 {{/each}}
-
-
-<script src="/js/likes.js"></script>
